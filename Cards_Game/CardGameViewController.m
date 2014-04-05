@@ -39,15 +39,15 @@
 
 -(void) updateUIwithResultofChoice:(NSString*)result{
     for (UIButton * cardButton in self.cardButtons) {
-        int index  = [self.cardButtons indexOfObject:cardButton];
+        NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
         Card * card = [self.game cardAtIndex:index];
         [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = ! card.isMatched;
+        cardButton.enabled = ! card.isMatched; 
     }
     
     self.resultOfChoiceLabel.text = result;
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",(long)self.game.score];
 }
 
 -(NSString *)titleForCard:(Card *)card{
@@ -60,7 +60,7 @@
     
 - (IBAction)touchCardButton:(UIButton *)sender {
 
-    int cardIndex = [self.cardButtons indexOfObject:sender];
+    NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
     
     

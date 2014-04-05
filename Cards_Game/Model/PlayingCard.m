@@ -19,8 +19,8 @@
     return @[@"♣️",@"♠️",@"♥️",@"♦️"];
 }
 
-+(NSUInteger) maxRank{
-    return [[self provideRankStrings] count]-1 ;
++(int) maxRank{
+    return [[self provideRankStrings] count]-1.0 ;
 }
 
 
@@ -32,7 +32,7 @@
 }
 
 
--(void)setRank:(NSUInteger)rank{
+-(void)setRank:(int)rank{
     
     if(rank <= [PlayingCard maxRank]){
         _rank = rank;
@@ -45,31 +45,60 @@
 -(int) match:(NSArray *)otherCards{
     
     int score = 0;
-    PlayingCard *otherCard;
+    id card = [otherCards firstObject];
     
+   
     switch ([otherCards count]) {
         case 1:
             
-            otherCard = [otherCards firstObject];
-            
-            if([self.suit isEqualToString: otherCard.suit]){
-                score = 1;
-            }else if(self.rank ==otherCard.rank){
-                score = 4;
-
+            if ([card isKindOfClass:[PlayingCard class]]){
+                PlayingCard *otherCard =  (PlayingCard *)card;
+                if([self.suit isEqualToString: otherCard.suit]){
+                    score = 1;
+                }else if(self.rank ==otherCard.rank){
+                    score = 4;
+                    
+                }
             }
             
             
+          
             
-            
-            
-            
-            
-            break;
-        case 2:
+
             
             break;
+       /* case 2:
+           
+            for ( otherCard in otherCards) {
+                if(score == 1 &&[self.suit isEqualToString: otherCard.suit]){
+                    score = 3;
+                }else if([self.suit isEqualToString: otherCard.suit] && score == 0 ){
+                     score = 1;
+                    
+                }else if (self.rank ==otherCard.rank && score == 4)
+                {
+                    score = 20;
+
+                }else if (self.rank ==otherCard.rank  && score == 0 ){
+                    score = 4;
+                }else if (([self.suit isEqualToString: otherCard.suit]  && score == 4) || (self.rank ==otherCard.rank && score == 3) ){
+                     score = 10;
+                }
+            }
+            
+            
+            break;*/
         default:
+            if ([card isKindOfClass:[PlayingCard class]]){
+                PlayingCard *otherCard =  (PlayingCard *)card;
+                if([self.suit isEqualToString: otherCard.suit]){
+                    score = 1;
+                }else if(self.rank ==otherCard.rank){
+                    score = 4;
+                    
+                }
+            }
+            
             break;
     }
     

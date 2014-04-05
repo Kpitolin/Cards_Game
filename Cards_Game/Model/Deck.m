@@ -46,7 +46,7 @@
 -(Card *)drawRandomCard{
     
     unsigned index;
-    int size = [self.cards count];
+    NSUInteger size = [self.cards count];
     Card *randomCard = nil;
     index = arc4random()%size; //size of array is the max index
     

@@ -10,7 +10,10 @@
 
 @interface CardMatchingGame () // DO NOT FORGET THE PARENTHESES (the interface is already created but we need a private one)
 
-@property (nonatomic, readwrite) NSUInteger score; // We need to set the score in our implementation but anyone can't do it from the public API
+@property (nonatomic, readwrite) NSInteger score; // We need to set the score in our implementation but anyone can't do it from the public API
+
+@property (nonatomic, strong) NSMutableArray *cardToMatchWith;
+
 @property (nonatomic, strong) NSMutableArray *cards; //of Card
 @end
 
@@ -29,6 +32,16 @@
     return _cards;
 }
 
+-(NSMutableArray *)cardToMatchWith{
+    
+    
+    //if the array doesn't exist yet create one
+    
+    if(!_cardToMatchWith ){
+        _cardToMatchWith=[[NSMutableArray alloc]init];
+    }
+    return _cardToMatchWith;
+}
 
 
 - (instancetype) initWithCardCount: (NSUInteger)count usingDeck:(Deck *)deck{
@@ -65,13 +78,12 @@
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
-
+static const int MAXTOMATCH = 2;
 
 
 -(NSString *) chooseCardAtIndex:(NSUInteger)index{
     NSString *resultOfchoice = @"";
     Card * card = [self.cards objectAtIndex:index];
-    //  NSMutableArray *cardToMatchWith;
     
     if (!card.isMatched){
         
@@ -85,14 +97,17 @@ static const int COST_TO_CHOOSE = 1;
             
             for (Card * anotherCard in self.cards ) {
                 if(anotherCard.isChosen && !anotherCard.isMatched){
-                    int matchScore = [card match:@[anotherCard]];
+                    
+                    
+                    
+                    int matchScore = [card match:@[anotherCard]/*self.cardToMatchWith*/];
                     
                     if(matchScore){
                         
                         self.score += matchScore *MATCH_BONUS;
                         card.matched = YES;
                         anotherCard.matched = YES;
-                        resultOfchoice = [NSString stringWithFormat:@"%@ matches with %@ :\nYou get %d %@",card.contents,anotherCard.contents,matchScore,matchScore>1?@"points":@"point"];
+                        resultOfchoice = [NSString stringWithFormat:@"%@ matches with %@ :\nYou get %d %@",card.contents,anotherCard.contents,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
                         
                     }else {
                         
@@ -101,7 +116,6 @@ static const int COST_TO_CHOOSE = 1;
                         resultOfchoice = [NSString stringWithFormat:@"%@ doesn't match with %@ :\nYou get -%d points",card.contents,anotherCard.contents,MISMATCH_PENALTY];
                     }
                     
-                    // [cardToMatchWith addObject:anotherCard];
                     break;
    
                 }
@@ -111,15 +125,15 @@ static const int COST_TO_CHOOSE = 1;
             
             
             card.chosen =YES;
+            //[self.cardToMatchWith addObject:card];
             self.score -= COST_TO_CHOOSE;
             
-            // We finally match with the ... cards
-            //  [card match:cardToMatchWith];
+          
  
         }
         
     }
-    
+    //if([self.cardToMatchWith count]==MAXTOMATCH)self.cardToMatchWith = nil ;
     return  resultOfchoice;
    
 }
