@@ -41,6 +41,44 @@
 }
 
 
+
+-(int) match:(NSArray *)otherCards{
+    
+    int score = 0;
+    PlayingCard *otherCard;
+    
+    switch ([otherCards count]) {
+        case 1:
+            
+            otherCard = [otherCards firstObject];
+            
+            if([self.suit isEqualToString: otherCard.suit]){
+                score = 1;
+            }else if(self.rank ==otherCard.rank){
+                score = 4;
+
+            }
+            
+            
+            
+            
+            
+            
+            
+            break;
+        case 2:
+            
+            break;
+        default:
+            break;
+    }
+    
+    
+    
+    return score;
+}
+
+
 @synthesize suit = _suit; // Because we provide getter AND setter
 
 - (NSString *) suit {
