@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 KEVIN. All rights reserved.
 //
 #import "Deck.h"
+#import "PlayingCard.h"
 
 @interface PlayingCardDeck : Deck
 

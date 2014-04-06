@@ -12,6 +12,7 @@
 @property (strong, nonatomic) NSString *suit;
 @property (nonatomic)int rank;
 
+-(NSArray*) arrayResult_match:(NSMutableArray *)otherCards; // returns an array with local score then explanation sentence
 
 
 +(int) maxRank;

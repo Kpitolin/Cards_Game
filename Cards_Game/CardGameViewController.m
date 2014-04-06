@@ -30,7 +30,8 @@
 
 -(CardMatchingGame*) game {
     if (!_game) {
-        _game = [[CardMatchingGame alloc]initWithCardCount:[self.cardButtons count] usingDeck: [self cardDeckCreate]] ;
+        _game = [[CardMatchingGame alloc]initWithCardCount:[self.cardButtons count] usingDeck: [self cardDeckCreate]andMaxMatching:2] ;// MAKE IT (the magical 3) SELECTABLE BY USER
+        
     }
     
     return _game;
@@ -55,13 +56,31 @@
 }
 
 -(UIImage *) backgroundImageForCard:(Card *)card {
-    return  [UIImage imageNamed:[card isChosen]? @"cardfront":@"cardback_red" ]  ; // pretty cool, uh ? 
+    return  [UIImage imageNamed:[card isChosen]? @"cardfront":@"cardback_linux" ]  ; // pretty cool, uh ? 
 }
     
 - (IBAction)touchCardButton:(UIButton *)sender {
 
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
-    [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
+    
+    if (self.game.maxOfMatchingItems ==0){
+        self.game.maxOfMatchingItems = 3; //RESET
+    }
+    
+    if([[self.game cardAtIndex:cardIndex] isChosen] ){
+        [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
+        self.game.maxOfMatchingItems++;
+        
+    }
+    
+    else if(self.game.maxOfMatchingItems >0)
+    
+    {
+        self.game.maxOfMatchingItems--;
+        [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]]; 
+
+    }
+    
     
     
 }

@@ -26,8 +26,8 @@
 
 -(NSString *)contents
 {
-  
-   return  [[PlayingCard provideRankStrings ] [self.rank] stringByAppendingString: self.suit];
+     super.contents =  [[PlayingCard provideRankStrings ] [self.rank] stringByAppendingString: self.suit];
+    return super.contents;
     
 }
 
@@ -40,24 +40,37 @@
     
 }
 
+static const int POINTS_RANK_PAIR = 4;
+static const int POINTS_SUIT_PAIR = 1;
+static const int POINTS_SUIT_TRIO= 3;
+static const int POINTS_RANK_TRIO= 20;
+static const int POINTS_MIXED_PAIR = 10;
 
 
--(int) match:(NSArray *)otherCards{
+
+-(NSArray *) arrayResult_match:(NSMutableArray *)otherCards{
     
-    int score = 0;
-    id card = [otherCards firstObject];
-    
-   
+    NSInteger score = 0;
+    id card ;
+    id card2;
+    NSString * result;
     switch ([otherCards count]) {
         case 1:
-            
+            card = [otherCards firstObject];
             if ([card isKindOfClass:[PlayingCard class]]){
                 PlayingCard *otherCard =  (PlayingCard *)card;
                 if([self.suit isEqualToString: otherCard.suit]){
-                    score = 1;
+                    score = POINTS_SUIT_PAIR;
+                   result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
+                    otherCard.matched = YES;
+
                 }else if(self.rank ==otherCard.rank){
-                    score = 4;
-                    
+                    score = POINTS_RANK_PAIR;
+                    result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
+                    otherCard.matched = YES;
+
+                } else {
+                    result = [NSString stringWithFormat:@"%@ doesn't match with %@" ,self.contents,otherCard.contents] ;
                 }
             }
             
@@ -67,44 +80,60 @@
 
             
             break;
-       /* case 2:
-           
-            for ( otherCard in otherCards) {
-                if(score == 1 &&[self.suit isEqualToString: otherCard.suit]){
-                    score = 3;
-                }else if([self.suit isEqualToString: otherCard.suit] && score == 0 ){
-                     score = 1;
-                    
-                }else if (self.rank ==otherCard.rank && score == 4)
-                {
-                    score = 20;
-
-                }else if (self.rank ==otherCard.rank  && score == 0 ){
-                    score = 4;
-                }else if (([self.suit isEqualToString: otherCard.suit]  && score == 4) || (self.rank ==otherCard.rank && score == 3) ){
-                     score = 10;
-                }
-            }
-            
-            
-            break;*/
-        default:
-            if ([card isKindOfClass:[PlayingCard class]]){
+        case 2:
+            // IMPROVE THIS : MAKE IT GENERIC
+            card = [otherCards firstObject];
+            card2 = [otherCards lastObject];
+            if ([card isKindOfClass:[PlayingCard class]] &&[card2 isKindOfClass:[PlayingCard class]] ){
                 PlayingCard *otherCard =  (PlayingCard *)card;
-                if([self.suit isEqualToString: otherCard.suit]){
-                    score = 1;
-                }else if(self.rank ==otherCard.rank){
-                    score = 4;
+                PlayingCard *otherCard2 =  (PlayingCard *)card2;
+
+            
+                if([self.suit isEqualToString: otherCard2.suit] && [self.suit isEqualToString: otherCard.suit])
+                {
                     
+                   score  = POINTS_SUIT_TRIO;
+                    result = [NSString stringWithFormat:@"%@  matches with %@ and %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    
+                }else if([self.suit isEqualToString: otherCard.suit] || [self.suit isEqualToString: otherCard2.suit]|| [otherCard2.suit isEqualToString: otherCard.suit])
+                    
+                {
+                     score = POINTS_SUIT_PAIR;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a suit pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    
+                }else if (self.rank ==otherCard.rank && self.rank ==otherCard2.rank)
+                    
+                {
+                    score = POINTS_RANK_TRIO;
+                    result = [NSString stringWithFormat:@"%@  matches with %@ and %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
+
+                }else if (self.rank ==otherCard.rank || self.rank ==otherCard2.rank || otherCard2.rank ==otherCard.rank)
+                {
+                    
+                    score = POINTS_RANK_PAIR;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a rank pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    
+                }else if (([self.suit isEqualToString: otherCard.suit] || [self.suit isEqualToString: otherCard2.suit]|| [otherCard2.suit isEqualToString: otherCard.suit])
+                          
+                    &&
+                    (self.rank ==otherCard.rank  || self.rank ==otherCard2.rank  || otherCard.rank ==otherCard2.rank) )
+                
+                {
+                     score = POINTS_MIXED_PAIR;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a mixed pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                }else {
+                    result = [NSString stringWithFormat:@"%@ doesn't match with %@ or %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
                 }
             }
+            
             
             break;
+   
     }
     
     
     
-    return score;
+    return @[ @(score) , result];
 }
 
 

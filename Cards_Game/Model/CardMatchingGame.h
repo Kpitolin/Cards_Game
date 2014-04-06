@@ -7,17 +7,18 @@
 //
 
 @import Foundation;
-#include "Deck.h"
+#include "PlayingCardDeck.h"
 
 @interface CardMatchingGame : NSObject
 
 
 
 // designated initializer
-- (instancetype) initWithCardCount: (NSUInteger)count usingDeck:(Deck *)deck;
+- (instancetype) initWithCardCount: (NSUInteger)count usingDeck:(Deck *)deck andMaxMatching:(int)max;
 -(NSString *) chooseCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic) int maxOfMatchingItems;
 
 
 
