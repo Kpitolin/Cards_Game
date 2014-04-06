@@ -48,7 +48,7 @@
     }
     
     self.resultOfChoiceLabel.text = result;
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",(long)self.game.score];
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score : %ld",(long)self.game.score];
 }
 
 -(NSString *)titleForCard:(Card *)card{
@@ -64,7 +64,7 @@
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     
     if (self.game.maxOfMatchingItems ==0){
-        self.game.maxOfMatchingItems = 3; //RESET
+        self.game.maxOfMatchingItems = 2; //RESET
     }
     
     if([[self.game cardAtIndex:cardIndex] isChosen] ){

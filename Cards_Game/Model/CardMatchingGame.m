@@ -142,7 +142,8 @@ static  int MAX_MATCHING;
             card.chosen =YES;
             self.score -= COST_TO_CHOOSE;
             
-            if ([self.cardToMatchWith count]!= MAX_MATCHING && !card.isMatched) { // IMPROVE THIS : GENERIC NOT FUNCTIONNAL FOR 3 OBJECTS
+            if ([self.cardToMatchWith count]!= MAX_MATCHING  && !card.isMatched
+ /*&& self.maxOfMatchingItems*/) {
                 [self.cardToMatchWith addObject:card];
             }
         }
