@@ -161,9 +161,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8g-Km-MzM">
-                                <rect key="frame" x="20" y="439" width="272" height="21"/>
+                                <rect key="frame" x="4" y="434" width="220" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -174,12 +174,26 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tkW-Hx-Pg2">
+                                <rect key="frame" x="232" y="429" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onChangeSwithState:" destination="vXZ-lx-hvc" eventType="valueChanged" id="vc0-iF-ces"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7m9-vp-pnc" appends="YES" id="Rj1-oD-KS9"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="chB-Mi-WJZ"/>
                     <connections>
                         <outlet property="resultOfChoiceLabel" destination="KCa-Ev-puE" id="PqA-W8-n10"/>
                         <outlet property="scoreLabel" destination="v8g-Km-MzM" id="jzm-Jq-fXv"/>
+                        <outlet property="swithNumberOfCardForMode" destination="tkW-Hx-Pg2" id="kC8-u8-BnN"/>
                         <outletCollection property="cardButtons" destination="e3r-rp-kFh" id="tHp-sP-27P"/>
                         <outletCollection property="cardButtons" destination="zQk-X4-2E0" id="1ul-yZ-k95"/>
                         <outletCollection property="cardButtons" destination="8Pp-16-PL5" id="1kh-t4-CmI"/>
@@ -195,8 +209,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="7m9-vp-pnc">
+                    <connections>
+                        <action selector="swipeGesture:" destination="vXZ-lx-hvc" id="AvV-Nr-AUm"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-173" y="38"/>
+            <point key="canvasLocation" x="733" y="-699"/>
         </scene>
     </scenes>
     <resources>
