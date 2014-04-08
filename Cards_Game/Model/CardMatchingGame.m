@@ -13,7 +13,6 @@
 @property (nonatomic, readwrite) NSInteger score; // We need to set the score in our implementation but anyone can't do it from the public API
 
 @property (nonatomic, strong) NSMutableArray *cardToMatchWith;
-
 @property (nonatomic, strong) NSMutableArray *cards; //of Card
 @end
 
@@ -52,7 +51,7 @@
     if (self && count > 2){
         
         _maxOfMatchingItems = max;
-        MAX_MATCHING = max-1; // PROBLEM ?
+        _numberOfCardsLeftToMatch = max;
         
         for (int i =0; i< count; i++) {
             Card * card = [deck drawRandomCard];
@@ -82,7 +81,6 @@
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
-static  int MAX_MATCHING;
 
 
 -(NSString *) chooseCardAtIndex:(NSUInteger)index{
@@ -97,7 +95,10 @@ static  int MAX_MATCHING;
             
             card.chosen = NO;
             [self.cardToMatchWith removeObject:card];
+            self.numberOfCardsLeftToMatch++;
         } else {
+            
+            self.numberOfCardsLeftToMatch--;
             
             if( [self.cardToMatchWith count]){
                 // match with another card
@@ -107,7 +108,13 @@ static  int MAX_MATCHING;
                     points = [card_id arrayResult_match:self.cardToMatchWith][0];
                     matchScore = [points isKindOfClass:[NSNumber class]] ? [points integerValue] : 0;
                     
-                    matchScore ? (card.matched = YES) :(card.matched = NO); // Put this in playing card
+                    if (matchScore) {
+                        for(Card *cardMatched in self.cardToMatchWith){
+                            cardMatched.matched = YES;
+                        }
+                        card.matched = YES ;
+                        
+                    }
                     
                 }else {
                     matchScore = [card match:self.cardToMatchWith];
@@ -115,7 +122,7 @@ static  int MAX_MATCHING;
                 }
                 
                 
-                if(matchScore && [self.cardToMatchWith count]== MAX_MATCHING){
+                if(matchScore && [self.cardToMatchWith count]== self.maxOfMatchingItems-1){
                     
                     self.score += matchScore *MATCH_BONUS;
                     card.matched = YES;
@@ -124,17 +131,17 @@ static  int MAX_MATCHING;
                     id result = [card_id arrayResult_match:self.cardToMatchWith][1];
                     NSString *begin = [result isKindOfClass:[NSString class]] ? (NSString *)result : @"";
                     
-                    resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %ld %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
-                     [self.cardToMatchWith removeAllObjects ] ;// cleans up the array for next time
-
+                    resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %d %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
+                    [self.cardToMatchWith removeAllObjects ] ;// cleans up the array for next time
                     
-                }else if ([self.cardToMatchWith count]== MAX_MATCHING){
+                    
+                }else if ([self.cardToMatchWith count]== self.maxOfMatchingItems-1){
                     
                     // We impose a penalty if there's no match
                     self.score -= MISMATCH_PENALTY;
                     resultOfchoice = [NSString stringWithFormat:@"You get -%d points" ,MISMATCH_PENALTY];
                     [self.cardToMatchWith removeAllObjects ];// cleans up the array for next time
-
+                    [self putBackEnabledCardsFaceUp];
                 }
                 
             }
@@ -142,18 +149,19 @@ static  int MAX_MATCHING;
             card.chosen =YES;
             self.score -= COST_TO_CHOOSE;
             
-            if ([self.cardToMatchWith count]!= MAX_MATCHING  && !card.isMatched
- /*&& self.maxOfMatchingItems*/) {
+            if (self.numberOfCardsLeftToMatch) {
+                
                 [self.cardToMatchWith addObject:card];
+                
+            } else if (card.isMatched){ // if the player wins he can't turn over the cards
+                
+                self.numberOfCardsLeftToMatch = self.maxOfMatchingItems; //RESET
+                
             }
         }
-       
         
     }
-    
-    
-    
-    
+
     return  resultOfchoice;
     
 }
@@ -167,7 +175,14 @@ static  int MAX_MATCHING;
 
 
 
-
+-(void) putBackEnabledCardsFaceUp{
+    Card * card;
+    for (card in self.cards) {
+        if (card.isChosen && !card.isMatched) {
+            [self.cardToMatchWith addObject:card];
+        }
+    }
+}
 
 
 

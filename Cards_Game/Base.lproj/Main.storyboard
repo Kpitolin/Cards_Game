@@ -161,27 +161,31 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8g-Km-MzM">
-                                <rect key="frame" x="4" y="434" width="220" height="21"/>
+                                <rect key="frame" x="-20" y="439" width="220" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="KCa-Ev-puE">
-                                <rect key="frame" x="29" y="366" width="263" height="65"/>
+                                <rect key="frame" x="29" y="346" width="263" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tkW-Hx-Pg2">
-                                <rect key="frame" x="232" y="429" width="51" height="31"/>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-C6-cVy">
+                                <rect key="frame" x="177" y="436" width="123" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="2 cards"/>
+                                    <segment title="3 cards"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="onChangeSwithState:" destination="vXZ-lx-hvc" eventType="valueChanged" id="vc0-iF-ces"/>
+                                    <action selector="onChangeState:" destination="vXZ-lx-hvc" eventType="valueChanged" id="r61-Sd-BGY"/>
                                 </connections>
-                            </switch>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -193,7 +197,7 @@
                     <connections>
                         <outlet property="resultOfChoiceLabel" destination="KCa-Ev-puE" id="PqA-W8-n10"/>
                         <outlet property="scoreLabel" destination="v8g-Km-MzM" id="jzm-Jq-fXv"/>
-                        <outlet property="swithNumberOfCardForMode" destination="tkW-Hx-Pg2" id="kC8-u8-BnN"/>
+                        <outlet property="segmentControlModeChooser" destination="LCy-C6-cVy" id="LQj-qm-vty"/>
                         <outletCollection property="cardButtons" destination="e3r-rp-kFh" id="tHp-sP-27P"/>
                         <outletCollection property="cardButtons" destination="zQk-X4-2E0" id="1ul-yZ-k95"/>
                         <outletCollection property="cardButtons" destination="8Pp-16-PL5" id="1kh-t4-CmI"/>
@@ -221,6 +225,7 @@
     <resources>
         <image name="cardback_linux" width="60" height="88"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -14,7 +14,7 @@
 @property (nonatomic, strong) CardMatchingGame* game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *swithNumberOfCardForMode;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControlModeChooser;
 @property (weak, nonatomic) IBOutlet UILabel *resultOfChoiceLabel;
 @end
 
@@ -47,6 +47,7 @@ static const int DEFAULT = 2;
     
     // Reset the cards
     for (UIButton * cardButton in self.cardButtons) {
+        cardButton.enabled = YES;
         [cardButton setTitle: @"" forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[UIImage imageNamed: @"cardback_linux"]forState:UIControlStateNormal];
     }
@@ -54,6 +55,9 @@ static const int DEFAULT = 2;
     self.game = nil;
     self.resultOfChoiceLabel.text = [NSString stringWithFormat:@""];
     self.scoreLabel.text = [NSString stringWithFormat:@"Score : 0"];
+    [self.segmentControlModeChooser setSelectedSegmentIndex:0];
+
+
 }
 
 - (IBAction)swipeGesture:(UISwipeGestureRecognizer *)sender {
@@ -62,30 +66,33 @@ static const int DEFAULT = 2;
     
 }
 
-
-
-- (IBAction)onChangeSwithState:(UISwitch *)sender {
+- (IBAction)onChangeState:(UISegmentedControl *)sender {
     // if the game did not start yet, you can set the match-mode
 
     if (!_game) { // check the actual state of game
-        if (sender.state) {
-        // if on it's a 3-card game
-           self.game = [self createNewGameWithMaxMatching:3];
+        if ([sender isEnabledForSegmentAtIndex:1]) {
+            // if on it's a 3-card game
+            self.game = [self createNewGameWithMaxMatching:3];
             
             
         }else{
             // if off it's a 2-card game
+            [sender setEnabled:YES forSegmentAtIndex:0];
 
+            self.game = [self createNewGameWithMaxMatching:DEFAULT];
             
-            self.game = [self createNewGameWithMaxMatching:2];
-
             
         }
     }
     
+    
 }
 
+
+
+
 -(void) updateUIwithResultofChoice:(NSString*)result{
+    
     for (UIButton * cardButton in self.cardButtons) {
         NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
         Card * card = [self.game cardAtIndex:index];
@@ -110,25 +117,8 @@ static const int DEFAULT = 2;
 
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     
-    if (self.game.maxOfMatchingItems ==0){
-        self.game.maxOfMatchingItems = 2; //RESET
-    }
-    
-    if([[self.game cardAtIndex:cardIndex] isChosen] ){
         [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
-        self.game.maxOfMatchingItems++;
-        
-    }
-    
-    else if(self.game.maxOfMatchingItems >0)
-    
-    {
-        self.game.maxOfMatchingItems--;
-        [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]]; 
-
-    }
-    
-    
+  
     
 }
 

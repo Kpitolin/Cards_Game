@@ -19,6 +19,7 @@
 -(Card *)cardAtIndex:(NSUInteger)index;
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) int maxOfMatchingItems;
+@property (nonatomic) int numberOfCardsLeftToMatch;
 
 
 

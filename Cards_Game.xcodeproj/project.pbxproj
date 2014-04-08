@@ -19,7 +19,6 @@
 		DE6C5A0718EF363E00E6D64D /* CardGameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C5A0618EF363E00E6D64D /* CardGameAppDelegate.m */; };
 		DE6C5A0A18EF363E00E6D64D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE6C5A0818EF363E00E6D64D /* Main.storyboard */; };
 		DE6C5A0D18EF363E00E6D64D /* CardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C5A0C18EF363E00E6D64D /* CardGameViewController.m */; };
-		DE6C5A0F18EF363E00E6D64D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE6C5A0E18EF363E00E6D64D /* Images.xcassets */; };
 		DE6C5A1618EF363E00E6D64D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6C5A1518EF363E00E6D64D /* XCTest.framework */; };
 		DE6C5A1718EF363E00E6D64D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6C59F618EF363E00E6D64D /* Foundation.framework */; };
 		DE6C5A1818EF363E00E6D64D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6C59FA18EF363E00E6D64D /* UIKit.framework */; };
@@ -27,6 +26,7 @@
 		DE6C5A2218EF363E00E6D64D /* Cards_GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C5A2118EF363E00E6D64D /* Cards_GameTests.m */; };
 		DE6C5A2D18EF578600E6D64D /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C5A2C18EF578600E6D64D /* Card.m */; };
 		DE6C5A3218EF5FAB00E6D64D /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C5A3118EF5FAB00E6D64D /* Deck.m */; };
+		DE9D72D018F327EC006949D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9D72CF18F327EC006949D1 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,6 @@
 		DE6C5A0918EF363E00E6D64D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE6C5A0B18EF363E00E6D64D /* CardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
 		DE6C5A0C18EF363E00E6D64D /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
-		DE6C5A0E18EF363E00E6D64D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DE6C5A1418EF363E00E6D64D /* Cards_GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cards_GameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6C5A1518EF363E00E6D64D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DE6C5A1D18EF363E00E6D64D /* Cards_GameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cards_GameTests-Info.plist"; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		DE6C5A2C18EF578600E6D64D /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		DE6C5A3018EF5FAB00E6D64D /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
 		DE6C5A3118EF5FAB00E6D64D /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		DE9D72CF18F327EC006949D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 				DE6C5A0C18EF363E00E6D64D /* CardGameViewController.m */,
 				DE55762418F1DF7200D614E5 /* Do.h */,
 				DE55762518F1DF7200D614E5 /* Do.m */,
-				DE6C5A0E18EF363E00E6D64D /* Images.xcassets */,
+				DE9D72CF18F327EC006949D1 /* Images.xcassets */,
 				DE6C59FD18EF363E00E6D64D /* Supporting Files */,
 			);
 			path = Cards_Game;
@@ -237,6 +237,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = KEVIN;
 				TargetAttributes = {
+					DE6C59F218EF363E00E6D64D = {
+						DevelopmentTeam = 87MBRGVD5R;
+					};
 					DE6C5A1318EF363E00E6D64D = {
 						TestTargetID = DE6C59F218EF363E00E6D64D;
 					};
@@ -266,7 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE6C5A0F18EF363E00E6D64D /* Images.xcassets in Resources */,
+				DE9D72D018F327EC006949D1 /* Images.xcassets in Resources */,
 				DE6C5A0118EF363E00E6D64D /* InfoPlist.strings in Resources */,
 				DE6C5A0A18EF363E00E6D64D /* Main.storyboard in Resources */,
 			);
@@ -418,12 +421,17 @@
 		DE6C5A2618EF363E00E6D64D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cards_Game/Cards_Game-Prefix.pch";
 				INFOPLIST_FILE = "Cards_Game/Cards_Game-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -431,12 +439,17 @@
 		DE6C5A2718EF363E00E6D64D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cards_Game/Cards_Game-Prefix.pch";
 				INFOPLIST_FILE = "Cards_Game/Cards_Game-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
