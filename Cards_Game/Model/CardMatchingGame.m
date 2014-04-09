@@ -136,7 +136,7 @@ static const int COST_TO_CHOOSE = 1;
                     id result = [card_id arrayResult_match:self.cardToMatchWith][1];
                     NSString *begin = [result isKindOfClass:[NSString class]] ? (NSString *)result : @"";
                     
-                    resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %d %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
+                    resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %ld %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
                     [self.cardToMatchWith removeAllObjects ] ;// cleans up the array for next time
                     
                     
@@ -192,7 +192,7 @@ static const int JEUNF = 3;
     int end = JEUNF;
     Card * card;
     NSMutableArray *restOfCards = [[NSMutableArray alloc]init];
-    if (self.numberOfCardsMatched == [self.cards count] && self.score ) {
+    if (self.numberOfCardsMatched == [self.cards count] && self.score > 0) {
         end = JEUFG;
     }else if(self.numberOfCardsMatched == [self.cards count]){
         end = JEUFP;
@@ -207,7 +207,7 @@ static const int JEUNF = 3;
         [restOfCards removeLastObject]; // We'll compare card with the 2 others
         if ([restOfCards count] == self.maxOfMatchingItems-1){
             if (![card match:restOfCards]){  // if the cards didn't match : end of the game
-                if ( self.score) {
+                if ( self.score > 0) {
                     end = JEUFG;
                 }else{
                     end = JEUFP;
