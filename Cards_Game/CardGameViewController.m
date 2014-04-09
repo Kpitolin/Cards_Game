@@ -61,13 +61,14 @@ static const int DEFAULT = 2;
 }
 
 - (IBAction)swipeGesture:(UISwipeGestureRecognizer *)sender {
-    
+    [sender setDirection: UISwipeGestureRecognizerDirectionLeft];
     [self resetUI];
     
 }
 
 - (IBAction)onChangeState:(UISegmentedControl *)sender {
     // if the game did not start yet, you can set the match-mode
+    NSLog(@"%d", [self.game endOfGame]);
 
     if (!_game) { // check the actual state of game
         if ([sender isEnabledForSegmentAtIndex:1]) {
@@ -92,7 +93,7 @@ static const int DEFAULT = 2;
 
 
 -(void) updateUIwithResultofChoice:(NSString*)result{
-    
+
     for (UIButton * cardButton in self.cardButtons) {
         NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
         Card * card = [self.game cardAtIndex:index];
@@ -103,6 +104,7 @@ static const int DEFAULT = 2;
     
     self.resultOfChoiceLabel.text = result;
     self.scoreLabel.text = [NSString stringWithFormat:@"Score : %ld",(long)self.game.score];
+
 }
 
 -(NSString *)titleForCard:(Card *)card{
@@ -118,7 +120,6 @@ static const int DEFAULT = 2;
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     
         [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
-  
     
 }
 

@@ -11,9 +11,11 @@
 @interface CardMatchingGame () // DO NOT FORGET THE PARENTHESES (the interface is already created but we need a private one)
 
 @property (nonatomic, readwrite) NSInteger score; // We need to set the score in our implementation but anyone can't do it from the public API
-
+@property (nonatomic) int numberOfCardsLeftToMatch;
 @property (nonatomic, strong) NSMutableArray *cardToMatchWith;
-@property (nonatomic, strong) NSMutableArray *cards; //of Card
+@property (nonatomic, strong) NSMutableArray *cards; //of type Card
+@property (nonatomic) int numberOfCardsMatched;
+
 @end
 
 
@@ -111,8 +113,11 @@ static const int COST_TO_CHOOSE = 1;
                     if (matchScore) {
                         for(Card *cardMatched in self.cardToMatchWith){
                             cardMatched.matched = YES;
+                            self.numberOfCardsMatched ++;
                         }
                         card.matched = YES ;
+                        self.numberOfCardsMatched ++;
+
                         
                     }
                     
@@ -174,6 +179,48 @@ static const int COST_TO_CHOOSE = 1;
 }
 
 
+// CONSTANTES :
+//  1 : jeu fini et gagnant (score positif)
+//  2 : jeu fini et perdant (score négatif)
+//  3 : jeu non fini
+static const int JEUFG = 1;
+static const int JEUFP = 2;
+static const int JEUNF = 3;
+
+
+-(int) endOfGame { // determine si le jeu est fini ou pas
+    int end = JEUNF;
+    Card * card;
+    NSMutableArray *restOfCards = [[NSMutableArray alloc]init];
+    if (self.numberOfCardsMatched == [self.cards count] && self.score ) {
+        end = JEUFG;
+    }else if(self.numberOfCardsMatched == [self.cards count]){
+        end = JEUFP;
+    }else if(self.numberOfCardsMatched == [self.cards count]-self.maxOfMatchingItems){
+        
+        for (card in self.cards) {
+            if ( !card.isMatched) { // number of Enabled Cards FaceUp
+                [restOfCards addObject:card];
+            }
+        }
+        card = restOfCards.lastObject;
+        [restOfCards removeLastObject]; // We'll compare card with the 2 others
+        if ([restOfCards count] == self.maxOfMatchingItems-1){
+            if (![card match:restOfCards]){  // if the cards didn't match : end of the game
+                if ( self.score) {
+                    end = JEUFG;
+                }else{
+                    end = JEUFP;
+                }
+            }
+            
+        }
+        
+    }
+
+    
+    return end;
+}
 
 -(void) putBackEnabledCardsFaceUp{
     Card * card;
