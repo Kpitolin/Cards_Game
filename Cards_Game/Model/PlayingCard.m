@@ -102,7 +102,7 @@ static const int POINTS_MIXED_PAIR = 10;
                     
                 {
                     score = POINTS_MIXED_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a mixed pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a mixed pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
                 }else if (self.rank ==otherCard.rank && self.rank ==otherCard2.rank)
                     
                 {
@@ -113,13 +113,13 @@ static const int POINTS_MIXED_PAIR = 10;
                     
                 {
                     score = POINTS_SUIT_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a suit pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a suit pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
                     
                 }else if (self.rank ==otherCard.rank || self.rank ==otherCard2.rank || otherCard2.rank ==otherCard.rank)
                 {
                     
                     score = POINTS_RANK_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@ there's a rank pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a rank pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
                     
                 }else {
                     result = [NSString stringWithFormat:@"%@ doesn't match with %@ or %@" ,self.contents,otherCard.contents,otherCard2.contents] ;

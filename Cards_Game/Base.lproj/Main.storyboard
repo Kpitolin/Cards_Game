@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3r-rp-kFh">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3r-rp-kFh">
                                 <rect key="frame" x="29" y="53" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -28,7 +28,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xa0-ul-xEH"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-X4-2E0">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-X4-2E0">
                                 <rect key="frame" x="97" y="53" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,7 +40,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FzN-67-mOl"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-16-PL5">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-16-PL5">
                                 <rect key="frame" x="164" y="53" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,7 +52,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="47e-Um-ZMZ"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxA-Jj-tA6">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxA-Jj-tA6">
                                 <rect key="frame" x="232" y="53" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -64,7 +64,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dTT-5L-ylE"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-er-Uzk">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-er-Uzk">
                                 <rect key="frame" x="29" y="154" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -76,7 +76,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jNS-Vn-X4F"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3U-Gk-Hzr">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3U-Gk-Hzr">
                                 <rect key="frame" x="97" y="154" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -88,7 +88,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LBo-eT-FSq"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvo-qE-AzG">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvo-qE-AzG">
                                 <rect key="frame" x="164" y="154" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -100,7 +100,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="weC-Rt-5Ru"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fr-eu-Ukf">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fr-eu-Ukf">
                                 <rect key="frame" x="232" y="154" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -112,7 +112,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="abn-f2-IOb"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-i6-XsC">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-i6-XsC">
                                 <rect key="frame" x="29" y="255" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -124,7 +124,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1vz-ty-94q"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-Fk-SSh">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-Fk-SSh">
                                 <rect key="frame" x="97" y="255" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -136,7 +136,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c6j-Bs-MVr"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6p-yf-9lO">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6p-yf-9lO">
                                 <rect key="frame" x="164" y="255" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -148,7 +148,7 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cns-Q1-Uii"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnJ-QS-7hS">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnJ-QS-7hS">
                                 <rect key="frame" x="232" y="255" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -160,23 +160,27 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sxn-fC-vkC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="165" translatesAutoresizingMaskIntoConstraints="NO" id="v8g-Km-MzM">
-                                <rect key="frame" x="9" y="440" width="165" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="112" translatesAutoresizingMaskIntoConstraints="NO" id="v8g-Km-MzM">
+                                <rect key="frame" x="38" y="442" width="112" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="KCa-Ev-puE">
-                                <rect key="frame" x="29" y="346" width="263" height="86"/>
+                                <rect key="frame" x="29" y="351" width="263" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-C6-cVy">
-                                <rect key="frame" x="177" y="436" width="123" height="29"/>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-C6-cVy">
+                                <rect key="frame" x="177" y="437" width="123" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="Ma6-zk-y5L"/>
+                                </constraints>
                                 <segments>
                                     <segment title="2 cards"/>
                                     <segment title="3 cards"/>
@@ -189,6 +193,53 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="s6p-yf-9lO" firstAttribute="leading" secondItem="Xvo-qE-AzG" secondAttribute="leading" id="2Qb-T2-T0w"/>
+                            <constraint firstItem="uRc-er-Uzk" firstAttribute="top" secondItem="e3r-rp-kFh" secondAttribute="bottom" constant="13" id="3Ra-94-VOE"/>
+                            <constraint firstItem="8Pp-16-PL5" firstAttribute="bottom" secondItem="zQk-X4-2E0" secondAttribute="bottom" id="4bM-Li-mfW"/>
+                            <constraint firstItem="8Pp-16-PL5" firstAttribute="leading" secondItem="zQk-X4-2E0" secondAttribute="trailing" constant="7" id="6vJ-6n-VTM"/>
+                            <constraint firstItem="8Pp-16-PL5" firstAttribute="baseline" secondItem="e3r-rp-kFh" secondAttribute="baseline" id="6vS-ws-p3y"/>
+                            <constraint firstItem="Xvo-qE-AzG" firstAttribute="bottom" secondItem="L3U-Gk-Hzr" secondAttribute="bottom" id="89O-V2-UFR"/>
+                            <constraint firstItem="uRc-er-Uzk" firstAttribute="leading" secondItem="uHU-i6-XsC" secondAttribute="leading" id="90D-xq-kMS"/>
+                            <constraint firstItem="IxA-Jj-tA6" firstAttribute="leading" secondItem="8Pp-16-PL5" secondAttribute="trailing" constant="8" symbolic="YES" id="9Jt-Wp-GBq"/>
+                            <constraint firstItem="Xvo-qE-AzG" firstAttribute="baseline" secondItem="7fr-eu-Ukf" secondAttribute="baseline" id="D5H-AS-5Of"/>
+                            <constraint firstItem="zQk-X4-2E0" firstAttribute="bottom" secondItem="e3r-rp-kFh" secondAttribute="bottom" id="FTl-ZQ-04U"/>
+                            <constraint firstItem="HwU-Fk-SSh" firstAttribute="top" secondItem="s6p-yf-9lO" secondAttribute="top" id="Faf-BN-PrL"/>
+                            <constraint firstItem="7fr-eu-Ukf" firstAttribute="leading" secondItem="Xvo-qE-AzG" secondAttribute="trailing" constant="8" symbolic="YES" id="Fan-8o-OBz"/>
+                            <constraint firstItem="uRc-er-Uzk" firstAttribute="baseline" secondItem="L3U-Gk-Hzr" secondAttribute="baseline" id="Gl0-Sz-Odl"/>
+                            <constraint firstItem="zQk-X4-2E0" firstAttribute="leading" secondItem="e3r-rp-kFh" secondAttribute="trailing" constant="8" symbolic="YES" id="HNo-sh-BUQ"/>
+                            <constraint firstItem="zQk-X4-2E0" firstAttribute="top" secondItem="8Pp-16-PL5" secondAttribute="top" id="JRo-LW-zvJ"/>
+                            <constraint firstItem="s6p-yf-9lO" firstAttribute="baseline" secondItem="HwU-Fk-SSh" secondAttribute="baseline" id="Jrn-9W-YZZ"/>
+                            <constraint firstItem="AnJ-QS-7hS" firstAttribute="baseline" secondItem="uHU-i6-XsC" secondAttribute="baseline" id="KLT-Dh-uJn"/>
+                            <constraint firstItem="L3U-Gk-Hzr" firstAttribute="top" secondItem="uRc-er-Uzk" secondAttribute="top" id="L8q-1d-Ffh"/>
+                            <constraint firstItem="Xvo-qE-AzG" firstAttribute="top" secondItem="7fr-eu-Ukf" secondAttribute="top" id="OJq-DF-93O"/>
+                            <constraint firstItem="AnJ-QS-7hS" firstAttribute="leading" secondItem="s6p-yf-9lO" secondAttribute="trailing" constant="8" symbolic="YES" id="R8G-dE-rkb"/>
+                            <constraint firstItem="e3r-rp-kFh" firstAttribute="leading" secondItem="uRc-er-Uzk" secondAttribute="leading" id="Rho-gp-EpB"/>
+                            <constraint firstItem="IxA-Jj-tA6" firstAttribute="top" secondItem="8Pp-16-PL5" secondAttribute="top" id="U3T-Bm-eMT"/>
+                            <constraint firstItem="uRc-er-Uzk" firstAttribute="baseline" secondItem="Xvo-qE-AzG" secondAttribute="baseline" id="Uqy-L8-kH0"/>
+                            <constraint firstItem="s6p-yf-9lO" firstAttribute="baseline" secondItem="AnJ-QS-7hS" secondAttribute="baseline" id="Wmi-rx-SLh"/>
+                            <constraint firstItem="HwU-Fk-SSh" firstAttribute="baseline" secondItem="uHU-i6-XsC" secondAttribute="baseline" id="XgX-rQ-Sx0"/>
+                            <constraint firstItem="e3r-rp-kFh" firstAttribute="baseline" secondItem="zQk-X4-2E0" secondAttribute="baseline" id="Xyf-Pz-6bH"/>
+                            <constraint firstItem="IxA-Jj-tA6" firstAttribute="baseline" secondItem="zQk-X4-2E0" secondAttribute="baseline" id="ZZw-1i-h2p"/>
+                            <constraint firstItem="8Pp-16-PL5" firstAttribute="leading" secondItem="Xvo-qE-AzG" secondAttribute="leading" id="Zs3-PU-O9p"/>
+                            <constraint firstItem="uHU-i6-XsC" firstAttribute="top" secondItem="uRc-er-Uzk" secondAttribute="bottom" constant="13" id="aGi-v2-h2p"/>
+                            <constraint firstItem="7fr-eu-Ukf" firstAttribute="baseline" secondItem="L3U-Gk-Hzr" secondAttribute="baseline" id="aKF-Gp-DGC"/>
+                            <constraint firstItem="HwU-Fk-SSh" firstAttribute="leading" secondItem="uHU-i6-XsC" secondAttribute="trailing" constant="8" symbolic="YES" id="djd-nZ-Pun"/>
+                            <constraint firstItem="AnJ-QS-7hS" firstAttribute="baseline" secondItem="HwU-Fk-SSh" secondAttribute="baseline" id="eFp-bY-jk1"/>
+                            <constraint firstItem="IxA-Jj-tA6" firstAttribute="baseline" secondItem="e3r-rp-kFh" secondAttribute="baseline" id="g55-ay-kG4"/>
+                            <constraint firstItem="8Pp-16-PL5" firstAttribute="baseline" secondItem="IxA-Jj-tA6" secondAttribute="baseline" id="gqo-it-VzI"/>
+                            <constraint firstItem="7fr-eu-Ukf" firstAttribute="baseline" secondItem="uRc-er-Uzk" secondAttribute="baseline" id="gzo-Hg-xfS"/>
+                            <constraint firstItem="uRc-er-Uzk" firstAttribute="bottom" secondItem="L3U-Gk-Hzr" secondAttribute="bottom" id="hwP-PK-XVJ"/>
+                            <constraint firstItem="uHU-i6-XsC" firstAttribute="top" secondItem="HwU-Fk-SSh" secondAttribute="top" id="i2q-p4-RU9"/>
+                            <constraint firstItem="L3U-Gk-Hzr" firstAttribute="leading" secondItem="uRc-er-Uzk" secondAttribute="trailing" constant="8" symbolic="YES" id="n6n-gV-W0t"/>
+                            <constraint firstItem="e3r-rp-kFh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="33" id="rAs-Ef-KvL"/>
+                            <constraint firstItem="L3U-Gk-Hzr" firstAttribute="top" secondItem="Xvo-qE-AzG" secondAttribute="top" id="rGY-aS-eRl"/>
+                            <constraint firstItem="e3r-rp-kFh" firstAttribute="top" secondItem="zQk-X4-2E0" secondAttribute="top" id="rLj-XX-KFy"/>
+                            <constraint firstItem="uHU-i6-XsC" firstAttribute="baseline" secondItem="s6p-yf-9lO" secondAttribute="baseline" id="vBP-8Z-zHg"/>
+                            <constraint firstAttribute="trailing" secondItem="LCy-C6-cVy" secondAttribute="trailing" constant="20" symbolic="YES" id="yVb-N6-AfE"/>
+                            <constraint firstItem="zQk-X4-2E0" firstAttribute="baseline" secondItem="8Pp-16-PL5" secondAttribute="baseline" id="ygT-9O-vDS"/>
+                            <constraint firstItem="Xvo-qE-AzG" firstAttribute="baseline" secondItem="L3U-Gk-Hzr" secondAttribute="baseline" id="zdY-bo-zxo"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="7m9-vp-pnc" appends="YES" id="Rj1-oD-KS9"/>
                         </connections>
