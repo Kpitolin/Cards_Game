@@ -83,7 +83,6 @@ static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
-
 -(NSString *) chooseCardAtIndex:(NSUInteger)index{
     NSString *resultOfchoice = @"";
     Card * card = [self.cards objectAtIndex:index];
@@ -200,12 +199,11 @@ static const int JEUFG = 1;
 static const int JEUFP = 2;
 static const int JEUNF = 3;
 
-//USE ARRAY_RESULT_MATCH
-//REVIEW THIS
+
 -(int) endOfGame { // determine game's end
     int end = JEUNF;
     Card * card;
-    Card * cardToMatch;
+    Card * cardToMatchFirst;
     id card_id ;
     id points;
     NSMutableArray *restOfCards = [[NSMutableArray alloc]init];
@@ -235,59 +233,59 @@ static const int JEUNF = 3;
             if (!([points isKindOfClass:[NSNumber class]] ? [points integerValue]: 0)){  // if the cards didn't match : end of the game
                 if ( self.score > 0) {
                     end = JEUFG;
-                    NSLog(@"Gagné");
                     
                 }else{
                     end = JEUFP;
-                    NSLog(@"Perdu");
                     
                 }
             }
             
         }
         
-    }/*else if (self.maxOfMatchingItems==2 &&
-              self.numberOfCardsMatched == [self.cards count]-2*self.maxOfMatchingItems){
-        // repeat this to see for all last cards
         
+        //MAKE THIS MORE GENERIC
+    }else if (self.maxOfMatchingItems==2 && !self.numberOfCardsLeftToMatch){  //handle case with the four last
+                                                                                //cards who don't match
         
         for (card in self.cards) {
             
-            if ( !card.isMatched && [restOfCards count] < self.maxOfMatchingItems-1) { 
+            if ( !card.isMatched && !card.isChosen) {
                 [restOfCards addObject:card];
             }
             
         }
+        if(self.numberOfCardsMatched == [self.cards count]-2*self.maxOfMatchingItems && [restOfCards count]==2*self.maxOfMatchingItems){
         
-        card = restOfCards.lastObject;
-        [restOfCards removeLastObject]; // We'll compare card with the x others
-        cardToMatch = restOfCards.lastObject;
         
-        if (){
+        for( card in restOfCards){
             
-            }
-            if (![card_id arrayResult_match:restOfCards][0]){  // if the cards didn't match : end of the game
-                if ( self.score > 0) {
-                    end = JEUFG;
-                    NSLog(@"Gagné");
+            // repeat this to see for all last cards
+            for (cardToMatchFirst in restOfCards){
+                if([card isKindOfClass:[PlayingCard class]]){
+                    card_id = (PlayingCard *)card;
                     
-                }else{
-                    end = JEUFP;
-                    NSLog(@"Perdu");
-                    
+                    if(![cardToMatchFirst.contents isEqualToString: card.contents]){
+                        points =[card_id arrayResult_match: [NSMutableArray arrayWithObject:cardToMatchFirst]][0];
+                        if (([points isKindOfClass:[NSNumber class]] ? [points integerValue]: 0)){   // if 2 cards  matched it stops
+                            return end;
+                        }
+                        
+                    }
                 }
             }
-            
         }
         
+        self.score > 0 ? (end = JEUFG): (end = JEUFP);
+        }
         
-        
-        // here you say that card = last object of card to match
-        card = restOfCards.lastObject;
-        
-    }*/
+    }
     
-    if(end == 3 && self.numberOfCardsMatched == [self.cards count]) NSLog(@"Pas fini");
+            
+        
+        
+    
+    
+    
     
     
     return end;

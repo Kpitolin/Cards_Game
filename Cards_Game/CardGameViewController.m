@@ -15,14 +15,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControlModeChooser;
 @property (weak, nonatomic) IBOutlet UILabel *resultOfChoiceLabel;
-@property (weak , nonatomic) UIImage *cardback;
 @property (weak , nonatomic) UIImage *cardfront;
+@property (weak , nonatomic) UIImage *cardback;
 
 @end
 
 @implementation CardGameViewController
 
-
+-(void) viewDidLoad
+{
+    [self resetUI];
+}
 
 -(Deck *)cardDeckCreate{
     
@@ -55,7 +58,7 @@ static const int DEFAULT = 2;
 -(UIImage *)cardback {
     
     if(!_cardback){
-        _cardback =  [UIImage imageNamed:@"cardback_linux"];
+        _cardback =  [UIImage imageNamed:[NSString stringWithFormat:@"cardback_%@",self.cardback_name]];
         
     }
     return _cardback;
@@ -69,6 +72,8 @@ static const int DEFAULT = 2;
     return _cardfront;
 }
 
+
+// Deprecated
 static const int DEFAULTXSCORE = 92;
 static const int DEFAULTYSCORE = 450;
 
@@ -97,6 +102,7 @@ static const int DEFAULTYSCORE = 450;
     
 }
 
+ // The swipe gesture start a new game from scratch
 - (IBAction)swipeGesture:(UISwipeGestureRecognizer *)sender {
     
     [self resetUI];
@@ -126,7 +132,7 @@ static const int DEFAULTYSCORE = 450;
 }
 
 
-
+// Deprecated
 static const int DEFAULTXRESULT = 160;
 static const int DEFAULTYRESULT = 389;
 
@@ -142,7 +148,7 @@ static const int DEFAULTYRESULT = 389;
         }
         
         // Animation for result
-        [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+        [UIView animateWithDuration:0.75 delay:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
             
             NSMutableAttributedString *title =
             [[NSMutableAttributedString alloc] initWithString: result];
@@ -153,7 +159,7 @@ static const int DEFAULTYRESULT = 389;
                            range:NSMakeRange(0, [title length])];
             
             self.resultOfChoiceLabel.attributedText = title;
-            self.resultOfChoiceLabel.center = self.resultOfChoiceLabel.superview.center;
+            //self.resultOfChoiceLabel.center = self.resultOfChoiceLabel.superview.center;
             
             
         } completion:^(BOOL finished){
@@ -185,6 +191,11 @@ static const int DEFAULTYRESULT = 389;
             [UIView animateWithDuration:3.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
                 for (UIButton * button in self.cardButtons){
                     button.alpha = 0.25;
+                    NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
+                    Card * card = [self.game cardAtIndex:index];
+                    card.chosen = YES;
+                    [button setTitle: [self titleForCard:card] forState:UIControlStateNormal];
+                    [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
                     button.enabled = NO;
                     
                 }
@@ -214,12 +225,19 @@ static const int DEFAULTYRESULT = 389;
             // Animation for loose
             
             for (UIButton * button in self.cardButtons){
+                
                 button.enabled = NO;
                 
             }
             [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
                 for (UIButton * button in self.cardButtons){
                     button.alpha = 0.25;
+                    
+                    NSUInteger index  = [self.cardButtons indexOfObject:button];  // We want to see the last cards
+                    Card * card = [self.game cardAtIndex:index];
+                    card.chosen = YES;
+                    [button setTitle: [self titleForCard:card] forState:UIControlStateNormal];
+                    [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
                     button.enabled = NO;
                 }
                 self.scoreLabel.center = self.scoreLabel.superview.center;

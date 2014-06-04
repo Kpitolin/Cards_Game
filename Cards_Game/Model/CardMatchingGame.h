@@ -15,7 +15,13 @@
 
 // designated initializer
 - (instancetype) initWithCardCount: (NSUInteger)count usingDeck:(Deck *)deck andMaxMatching:(int)max;
+
+
+/* it determines what to do when a card is chosen and return the local score to display (probably don't respect MVC)
+ 
+ */
 -(NSString *) chooseCardAtIndex:(NSUInteger)index;
+//return the chosen card
 -(Card *)cardAtIndex:(NSUInteger)index;
 
 // CONSTANTES :

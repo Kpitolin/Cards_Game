@@ -59,7 +59,7 @@
     
     return randomCard;
 }
--(BOOL) estVide
+-(BOOL) isEmpty
 {
     if (![self.cards count]) {
         return YES;

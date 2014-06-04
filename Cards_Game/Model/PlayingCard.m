@@ -19,6 +19,7 @@
     return @[@"♣️",@"♠️",@"♥️",@"♦️"];
 }
 
+
 +(int) maxRank{
     return [[self provideRankStrings] count]-1.0 ;
 }
@@ -40,11 +41,6 @@
     
 }
 
-static const int POINTS_RANK_PAIR = 4;
-static const int POINTS_SUIT_PAIR = 1;
-static const int POINTS_SUIT_TRIO= 3;
-static const int POINTS_RANK_TRIO= 20;
-static const int POINTS_MIXED_PAIR = 10;
 
 
 

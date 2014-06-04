@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CardGameViewController : UIViewController
+@property (weak , nonatomic) NSString *cardback_name;
 
 @end
