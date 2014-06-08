@@ -113,7 +113,7 @@ static const int DEFAULTYSCORE = 450;
 
 - (IBAction)onChangeState:(UISegmentedControl *)sender {
     // you can set the match-mode, if a game started, it get erased
-    // NSAlert here
+
     
         if ([sender isEnabledForSegmentAtIndex:1]) {
             // if on it's a 3-card game
@@ -121,7 +121,7 @@ static const int DEFAULTYSCORE = 450;
             self.game = [self createNewGameWithMaxMatching:3];
             
             
-        }else{
+        }else if ([sender isEnabledForSegmentAtIndex:0]){
             // if off it's a 2-card game
             
             self.game = [self createNewGameWithMaxMatching:DEFAULT];
@@ -148,7 +148,7 @@ static const int DEFAULTYRESULT = 389;
             cardButton.enabled = ! card.isMatched;
             
         }
-        
+    
         // Animation for result
         [UIView animateWithDuration:0.75 delay:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
             
@@ -222,7 +222,6 @@ static const int DEFAULTYRESULT = 389;
             } completion:^(BOOL finished){
                 // When the animation finished do something
                 
-                
             }] ;
         }
             break;
@@ -264,6 +263,8 @@ static const int DEFAULTYRESULT = 389;
                 
             } completion:^(BOOL finished){
                 // When the animation finished do something
+              
+                
             }] ;
             break;
             
