@@ -15,6 +15,7 @@
 @implementation ScoreTableViewController
 
 
+
 - (IBAction)clearScores:(id)sender {
     [self.refreshControl beginRefreshing];
 
@@ -68,7 +69,11 @@
     if ([self.gameTable objectAtIndex:indexPath.row] == self.highscore ){
         cell.detailTextLabel.textColor = [UIColor redColor];
     
+    } else if (cell.detailTextLabel.textColor == [UIColor redColor]){
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+
     }
+
     if([[self.gameTable objectAtIndex:indexPath.row] intValue ] > 0){
         cell.textLabel.text = @"Gagné !";
         string = @"Points";

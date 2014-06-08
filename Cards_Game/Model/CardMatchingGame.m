@@ -244,7 +244,7 @@ static const int JEUNF = 3;
         
         
         //MAKE THIS MORE GENERIC
-    }else if (self.maxOfMatchingItems==2 && !self.numberOfCardsLeftToMatch){  //handle case with the four last
+    }/*else if (self.maxOfMatchingItems==2 && !self.numberOfCardsLeftToMatch){  //handle case with the four last
                                                                                 //cards who don't match
         
         for (card in self.cards) {
@@ -278,7 +278,7 @@ static const int JEUNF = 3;
         self.score > 0 ? (end = JEUFG): (end = JEUFP);
         }
         
-    }
+    }*/
     
             
         

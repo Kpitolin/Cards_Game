@@ -297,6 +297,7 @@ static const int DEFAULTYRESULT = 389;
 #define MAXOFRECENTGAMES 20
 
 #define SCORES @"Scores"
+#define HIGHSCORE @"HIGHSCORE"
 
 //For saving the photos in the NSUserDefaults
 - (void)saveScore{
@@ -306,7 +307,10 @@ static const int DEFAULTYRESULT = 389;
     
     //if it's the first game the dictionnary doesn't exist yet
     if (!games) games = [[NSMutableArray alloc] init];
-    [games addObject: [NSNumber numberWithInt:self.game.score]];
+    if(![games containsObject:[NSNumber numberWithInt:self.game.score]])
+    {
+        [games addObject: [NSNumber numberWithInt:self.game.score]];
+    }
     while ([games count] > MAXOFRECENTGAMES){
         [games removeLastObject];
     }
@@ -316,12 +320,22 @@ static const int DEFAULTYRESULT = 389;
     [defaults synchronize];
 }
 
--(NSNumber *)findHighScore{
-    NSNumber * highscore;
+-(void)findHighScore{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSNumber *hs = [[NSNumber alloc]init];
+    hs =[defaults objectForKey:HIGHSCORE] ;
+
+    NSNumber * highscore =  [[NSNumber alloc]init];
+                             highscore = hs;
     
     NSArray* scoreArray = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] sortedArrayUsingSelector:@selector(intValue)];
-    highscore = [scoreArray lastObject];
-    return highscore;
+   ( highscore > [scoreArray lastObject]) ? ( highscore = [scoreArray lastObject]): (highscore =[defaults objectForKey:HIGHSCORE]) ;
+    
+    
+    //if it's the first game the dictionnary doesn't exist yet
+    [defaults setObject:highscore forKey:HIGHSCORE];
+    [defaults synchronize];
+    
 }
 
 //In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -329,8 +343,10 @@ static const int DEFAULTYRESULT = 389;
 {
     if ([segue.identifier isEqualToString:@"Display_score" ]  ) {
         if ([segue.destinationViewController isKindOfClass:[ScoreTableViewController class]]){
-            ((ScoreTableViewController *)segue.destinationViewController).highscore = [self findHighScore];
             ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
+            [self findHighScore];
+            ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:@"HIGHSCORE"];
+
         }
     }
     
