@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" patternImage="C04B7E43-701D-47DE-A7BF-FC980A2C9F30" colorSpace="pattern"/>
+                                    <color key="titleShadowColor" patternImage="7EBBF6A5-D87B-4C86-9AE5-AE97EE4C1457" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="mUi-SB-LY7"/>
@@ -371,7 +371,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C04B7E43-701D-47DE-A7BF-FC980A2C9F30" width="256" height="256">
+        <image name="7EBBF6A5-D87B-4C86-9AE5-AE97EE4C1457" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

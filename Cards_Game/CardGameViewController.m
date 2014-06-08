@@ -195,7 +195,7 @@ static const int DEFAULTYRESULT = 389;
                 
             }
             // Animation for win
-            [UIView animateWithDuration:3.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+            [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
                 for (UIButton * button in self.cardButtons){
                     button.alpha = 0.25;
                     NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
