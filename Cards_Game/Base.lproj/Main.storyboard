@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" patternImage="DC53CD30-37F8-4F09-89B4-59F335FBCCF3" colorSpace="pattern"/>
+                                    <color key="titleShadowColor" patternImage="C04B7E43-701D-47DE-A7BF-FC980A2C9F30" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="mUi-SB-LY7"/>
@@ -263,9 +263,9 @@
                     <navigationItem key="navigationItem" id="chB-Mi-WJZ">
                         <barButtonItem key="backBarButtonItem" title="Retour" id="LTd-sn-MZT"/>
                         <barButtonItem key="rightBarButtonItem" title="Scores" id="19G-mP-5ij">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="WUs-Vh-ZxD" kind="push" id="AIk-z7-Yln"/>
+                                <segue destination="WUs-Vh-ZxD" kind="push" identifier="Display_score" id="AIk-z7-Yln"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -297,21 +297,37 @@
             </objects>
             <point key="canvasLocation" x="2523" y="-780"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Score Table View Controller-->
         <scene sceneID="1NF-7Z-c2O">
             <objects>
-                <tableViewController id="WUs-Vh-ZxD" sceneMemberID="viewController">
+                <tableViewController id="WUs-Vh-ZxD" customClass="ScoreTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yPQ-TD-Tgd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sbV-pd-tPF">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Game_Score" textLabel="snL-YF-fdp" detailTextLabel="dXg-b1-hUM" style="IBUITableViewCellStyleValue1" id="sbV-pd-tPF">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbV-pd-tPF" id="Ojj-HX-g5N">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="snL-YF-fdp">
+                                            <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dXg-b1-hUM">
+                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -320,11 +336,20 @@
                             <outlet property="delegate" destination="WUs-Vh-ZxD" id="1CA-C9-4UP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pwV-UE-rDK"/>
+                    <navigationItem key="navigationItem" id="pwV-UE-rDK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="7DZ-TI-sxs">
+                            <connections>
+                                <action selector="clearScores:" destination="WUs-Vh-ZxD" id="9nj-qZ-e7S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="xw3-Rz-2Sf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqq-bj-gOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3028" y="-780"/>
+            <point key="canvasLocation" x="3003" y="-1019"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c2a-rE-ceA">
@@ -346,7 +371,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DC53CD30-37F8-4F09-89B4-59F335FBCCF3" width="256" height="256">
+        <image name="C04B7E43-701D-47DE-A7BF-FC980A2C9F30" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

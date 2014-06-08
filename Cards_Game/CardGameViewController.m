@@ -8,6 +8,8 @@
 #import "PlayingCardDeck.h"
 #import "CardGameViewController.h"
 #import  "CardMatchingGame.h"
+#import "ScoreTableViewController.h"
+
 @interface CardGameViewController ()
 @property (strong, nonatomic) Deck * cardDeck;
 @property (nonatomic, strong) CardMatchingGame* game;
@@ -167,21 +169,26 @@ static const int DEFAULTYRESULT = 389;
             // When the animation put the label back and verify end of game
             
             self.resultOfChoiceLabel.center =  CGPointMake(DEFAULTXRESULT, DEFAULTYRESULT);
+            
             [self endOfGameAnimation];
             
         }];
         
-        
-        
+    
         self.scoreLabel.text = [NSString stringWithFormat:@"Score : %ld",(long)self.game.score];
     
   
 }
 
+
+
 -(void)endOfGameAnimation{
+
     switch ([self.game endOfGame]) {
         case 1:
         {
+            [self saveScore];
+
             
             for (UIButton * button in self.cardButtons){
                 button.enabled = NO;
@@ -203,11 +210,11 @@ static const int DEFAULTYRESULT = 389;
                 self.scoreLabel.bounds = CGRectMake( self.scoreLabel.center.x, self.scoreLabel.center.y, 165, 165);
                 
                 NSMutableAttributedString *title =
-                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU WIN\n%ld points",(long)self.game.score]];
+                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU WIN\n%i points",self.game.score]];
                 [title setAttributes:@{
                                        NSFontAttributeName: [UIFont systemFontOfSize:30],
                                        NSStrokeWidthAttributeName : @3,
-                                       NSStrokeColorAttributeName : [UIColor redColor] }
+                                       NSStrokeColorAttributeName : [UIColor whiteColor] }
                                range:NSMakeRange(0, [title length])];
                 self.scoreLabel.attributedText = title;
                 
@@ -222,13 +229,17 @@ static const int DEFAULTYRESULT = 389;
             
             
         case 2:
-            // Animation for loose
+            
+            [self saveScore];
+
             
             for (UIButton * button in self.cardButtons){
                 
                 button.enabled = NO;
                 
             }
+            // Animation for loose
+
             [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
                 for (UIButton * button in self.cardButtons){
                     button.alpha = 0.25;
@@ -243,17 +254,16 @@ static const int DEFAULTYRESULT = 389;
                 self.scoreLabel.center = self.scoreLabel.superview.center;
                 self.scoreLabel.bounds = CGRectMake( self.scoreLabel.center.x, self.scoreLabel.center.y, 165, 165);
                 NSMutableAttributedString *title =
-                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU LOSE\n%ld points",(long)self.game.score]];
+                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU LOSE\n%i points",self.game.score]];
                 [title setAttributes:@{
                                        NSFontAttributeName: [UIFont systemFontOfSize:30],
                                        NSStrokeWidthAttributeName : @3,
-                                       NSStrokeColorAttributeName : [UIColor redColor] }
+                                       NSStrokeColorAttributeName : [UIColor whiteColor] }
                                range:NSMakeRange(0, [title length])];
                 self.scoreLabel.attributedText = title;
                 
             } completion:^(BOOL finished){
                 // When the animation finished do something
-                
             }] ;
             break;
             
@@ -283,6 +293,52 @@ static const int DEFAULTYRESULT = 389;
 
     
 }
+#define MAXOFRECENTGAMES 20
+
+#define SCORES @"Scores"
+
+//For saving the photos in the NSUserDefaults
+- (void)saveScore{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray *games = [[defaults objectForKey:SCORES] mutableCopy];
+    
+    //if it's the first game the dictionnary doesn't exist yet
+    if (!games) games = [[NSMutableArray alloc] init];
+    [games addObject: [NSNumber numberWithInt:self.game.score]];
+    while ([games count] > MAXOFRECENTGAMES){
+        [games removeLastObject];
+    }
+    
+    
+    [defaults setObject:games forKey:SCORES];
+    [defaults synchronize];
+}
+
+-(NSNumber *)findHighScore{
+    NSNumber * highscore;
+    
+    NSArray* scoreArray = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] sortedArrayUsingSelector:@selector(intValue)];
+    highscore = [scoreArray lastObject];
+    return highscore;
+}
+
+//In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Display_score" ]  ) {
+        if ([segue.destinationViewController isKindOfClass:[ScoreTableViewController class]]){
+            ((ScoreTableViewController *)segue.destinationViewController).highscore = [self findHighScore];
+            ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
+        }
+    }
+    
+    
+    
+        
+}
+    
+    
 
 
 
