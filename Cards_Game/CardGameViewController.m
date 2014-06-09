@@ -254,7 +254,6 @@ static const int DEFAULTYRESULT = 389;
             
         }
         
-        [self.view addSubview:self.scoreLabel];
         [self updateConstraintsOfUIElement:self.scoreLabel
                              withNewCenter:self.view.center];
 
