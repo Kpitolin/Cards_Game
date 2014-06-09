@@ -10,7 +10,7 @@
 
 @interface CardMatchingGame () // DO NOT FORGET THE PARENTHESES (the interface is already created but we need a private one)
 
-@property (nonatomic, readwrite) NSInteger score; // We need to set the score in our implementation but anyone can't do it from the public API
+@property (nonatomic, readwrite) int score; // We need to set the score in our implementation but anyone can't do it from the public API
 @property (nonatomic, strong) NSMutableArray *cardToMatchWith;
 @property (nonatomic, strong) NSMutableArray *cards; //of type Card
 @property (nonatomic) int numberOfCardsMatched;
@@ -134,7 +134,7 @@ static const int COST_TO_CHOOSE = 1;
                 id result = [card_id arrayResult_match:self.cardToMatchWith][1];
                 NSString *begin = [result isKindOfClass:[NSString class]] ? (NSString *)result : @"";
                 
-                resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %d %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
+                resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %ld %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
                 
                 
             }

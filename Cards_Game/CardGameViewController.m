@@ -19,10 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultOfChoiceLabel;
 @property (weak , nonatomic) UIImage *cardfront;
 @property (weak , nonatomic) UIImage *cardback;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distanceToBottomScoreLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distanceToLeftScoreLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightScoreLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthScoreLabelConstraint;
 
 @end
 
 @implementation CardGameViewController
+
 
 -(void) viewDidLoad
 {
@@ -83,9 +88,8 @@ static const int DEFAULTYSCORE = 450;
     
     // Reset the score position, color and size
     CGPoint  point = CGPointMake(DEFAULTXSCORE, DEFAULTYSCORE);
-    self.scoreLabel.bounds = CGRectMake( self.scoreLabel.center.x, self.scoreLabel.center.y, 165, 21);
-    self.scoreLabel.center = point ;
     self.scoreLabel.text = [NSString stringWithFormat:@"Score : 0"];
+    [self updateConstraintsOfUIElement:self.scoreLabel withNewCenter:point withTextAttributes:nil];
     
     
     // Reset the cards
@@ -180,97 +184,119 @@ static const int DEFAULTYRESULT = 389;
   
 }
 
+#define IDLABEL @"scoreLabel"
+
+-(NSDictionary *) attributesForEndOfGame{
+    return   @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
+                                    NSStrokeWidthAttributeName : @3,
+                                    NSStrokeColorAttributeName : [UIColor whiteColor]};
+}
+
+
+-(void)updateConstraintsOfUIElement: (UIView*)view withNewCenter:(CGPoint )center withTextAttributes: (NSDictionary *) attributes
+{
+    
+    
+    if ([view isKindOfClass:[UILabel class]] ){
+        
+        //For the score Label
+        
+        UILabel * label = (UILabel *)view ;
+        self.distanceToBottomScoreLabelConstraint.constant  = center.y - (label.bounds.size.height/2);
+        self.distanceToLeftScoreLabelConstraint.constant = center.x - (label.bounds.size.height/2);
+        
+        // I look for the appropriated size for this label
+        label.bounds = [self determinePerfectFrameForView:label withTextAttributes:attributes];
+        [label setNeedsDisplay];
+
+        
+    }
+}
+
+// this is cool !! Need to store it in a completion block (or just don't forget it)
+
+-(CGRect) determinePerfectFrameForView:(UIView *)view withTextAttributes:(NSDictionary *)attributes{
+    CGSize perfetSize;
+    CGRect perfectFrame;
+    if ([view isKindOfClass:[UILabel class]]){
+        UILabel * label = (UILabel *)view ;
+        perfetSize = [label.text sizeWithAttributes:attributes];
+        perfectFrame = CGRectMake(label.center.x, label.center.y, perfetSize.width, perfetSize.height);
+    }
+    return perfectFrame;
+}
+
+-(void)endOfGameConfigurationWinning:(BOOL)win
+{
+    [self saveScore];
+    
+    
+    for (UIButton * button in self.cardButtons){
+        button.enabled = NO;
+        
+    }
+    // Animation for winning/losing
+    NSString * endWord ;
+    win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
+    [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+        
+        
+        for (UIButton * button in self.cardButtons){
+            button.alpha = 0.25;
+            NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
+            Card * card = [self.game cardAtIndex:index];
+            card.chosen = YES;
+            [button setTitle: [self titleForCard:card] forState:UIControlStateNormal];
+            [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+            button.enabled = NO;
+            
+        }
+
+        [self updateConstraintsOfUIElement:self.scoreLabel
+                             withNewCenter:self.view.center
+                        withTextAttributes:[self attributesForEndOfGame]];
+        NSMutableAttributedString *title =
+        [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
+        [title setAttributes:[self attributesForEndOfGame]
+                       range:NSMakeRange(0, [title length])];
+        self.scoreLabel.attributedText = title;
+       
+        
+        
+    } completion:^(BOOL finished){
+        // When the animation finished do something
+       
+        
+    }] ;
+}
+
+
 
 
 -(void)endOfGameAnimation{
 
     switch ([self.game endOfGame]) {
         case 1:
-        {
-            [self saveScore];
-
-            
-            for (UIButton * button in self.cardButtons){
-                button.enabled = NO;
-                
-            }
+        
+           
             // Animation for win
-            [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-                for (UIButton * button in self.cardButtons){
-                    button.alpha = 0.25;
-                    NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
-                    Card * card = [self.game cardAtIndex:index];
-                    card.chosen = YES;
-                    [button setTitle: [self titleForCard:card] forState:UIControlStateNormal];
-                    [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-                    button.enabled = NO;
-                    
-                }
-                self.scoreLabel.center = self.scoreLabel.superview.center;
-                self.scoreLabel.bounds = CGRectMake( self.scoreLabel.center.x, self.scoreLabel.center.y, 165, 165);
-                
-                NSMutableAttributedString *title =
-                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU WIN\n%i points",self.game.score]];
-                [title setAttributes:@{
-                                       NSFontAttributeName: [UIFont systemFontOfSize:30],
-                                       NSStrokeWidthAttributeName : @3,
-                                       NSStrokeColorAttributeName : [UIColor whiteColor] }
-                               range:NSMakeRange(0, [title length])];
-                self.scoreLabel.attributedText = title;
-                
-                
-            } completion:^(BOOL finished){
-                // When the animation finished do something
-                
-            }] ;
-        }
+            [self endOfGameConfigurationWinning:YES];
             break;
             
             
         case 2:
             
-            [self saveScore];
+            
+            // Animation for loose
+            [self endOfGameConfigurationWinning:NO];
 
             
-            for (UIButton * button in self.cardButtons){
-                
-                button.enabled = NO;
-                
-            }
-            // Animation for loose
-
-            [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-                for (UIButton * button in self.cardButtons){
-                    button.alpha = 0.25;
-                    
-                    NSUInteger index  = [self.cardButtons indexOfObject:button];  // We want to see the last cards
-                    Card * card = [self.game cardAtIndex:index];
-                    card.chosen = YES;
-                    [button setTitle: [self titleForCard:card] forState:UIControlStateNormal];
-                    [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-                    button.enabled = NO;
-                }
-                self.scoreLabel.center = self.scoreLabel.superview.center;
-                self.scoreLabel.bounds = CGRectMake( self.scoreLabel.center.x, self.scoreLabel.center.y, 165, 165);
-                NSMutableAttributedString *title =
-                [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU LOSE\n%i points",self.game.score]];
-                [title setAttributes:@{
-                                       NSFontAttributeName: [UIFont systemFontOfSize:30],
-                                       NSStrokeWidthAttributeName : @3,
-                                       NSStrokeColorAttributeName : [UIColor whiteColor] }
-                               range:NSMakeRange(0, [title length])];
-                self.scoreLabel.attributedText = title;
-                
-            } completion:^(BOOL finished){
-                // When the animation finished do something
-              
-                
-            }] ;
             break;
             
             
             
-    }
+    
+}
 }
 
 -(NSString *)titleForCard:(Card *)card{
