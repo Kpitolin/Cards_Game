@@ -254,20 +254,30 @@ static const int DEFAULTYRESULT = 389;
             
         }
         
-        [self updateConstraintsOfUIElement:self.scoreLabel
-                             withNewCenter:self.view.center];
-
-        NSMutableAttributedString *title =
-        [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
-        [title setAttributes:[self attributesForEndOfGame]
-                       range:NSMakeRange(0, [title length])];
-        self.scoreLabel.attributedText = title;
-        self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
-        self.widthScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width + 20;
+        
+        
+        
 
         
     } completion:^(BOOL finished){
         // When the animation finished do something
+        [UIView animateWithDuration:1.0
+                              delay:0.0
+                            options:UIViewAnimationOptionTransitionCurlUp
+                         animations:^{
+                             
+                             // it's not animating because of CoreAnimation
+                             self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
+                             self.widthScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width*1.25 ;
+                             
+                             NSMutableAttributedString *title =
+                             [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
+                             [title setAttributes:[self attributesForEndOfGame]
+                                            range:NSMakeRange(0, [title length])];
+                             self.scoreLabel.attributedText = title;
+                             [self updateConstraintsOfUIElement:self.scoreLabel
+                                                  withNewCenter:self.view.center];                         }
+                         completion:nil];
        
         
     }] ;
