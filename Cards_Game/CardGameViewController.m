@@ -42,6 +42,7 @@
     
 }
 
+//  mode de jeu par défaut
 
 static const int DEFAULT = 2;
 
@@ -81,16 +82,19 @@ static const int DEFAULT = 2;
 
 
 // Deprecated
-static const int DEFAULTXSCORE = 92;
-static const int DEFAULTYSCORE = 450;
+static const int DEFAULTXSCORE = 94;
+static const int DEFAULTYSCORE = 452;
 
 -(void) resetUI{
     
-    // Reset the score position, color and size
+    // Reset the score position, color and size and text
     CGPoint  point = CGPointMake(DEFAULTXSCORE, DEFAULTYSCORE);
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score : 0"];
-    [self updateConstraintsOfUIElement:self.scoreLabel withNewCenter:point withTextAttributes:nil];
+    NSMutableAttributedString *attributedText =
+    [[NSMutableAttributedString alloc] initWithString: @"Score : 0"];
+    self.scoreLabel.attributedText = attributedText;
     
+    [self updateConstraintsOfUIElement:self.scoreLabel withNewCenter:point];
+    [self.scoreLabel setNeedsDisplay];
     
     // Reset the cards
     for (UIButton * cardButton in self.cardButtons) {
@@ -102,7 +106,6 @@ static const int DEFAULTYSCORE = 450;
     // delete the game
     self.game = nil;
     self.resultOfChoiceLabel.text = [NSString stringWithFormat:@""];
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score : 0"];
     [self.segmentControlModeChooser setSelectedSegmentIndex:0];
     
     
@@ -172,7 +175,7 @@ static const int DEFAULTYRESULT = 389;
             
             // When the animation put the label back and verify end of game
             
-            self.resultOfChoiceLabel.center =  CGPointMake(DEFAULTXRESULT, DEFAULTYRESULT);
+            //self.resultOfChoiceLabel.center =  CGPointMake(DEFAULTXRESULT, DEFAULTYRESULT);
             
             [self endOfGameAnimation];
             
@@ -193,7 +196,7 @@ static const int DEFAULTYRESULT = 389;
 }
 
 
--(void)updateConstraintsOfUIElement: (UIView*)view withNewCenter:(CGPoint )center withTextAttributes: (NSDictionary *) attributes
+-(void)updateConstraintsOfUIElement: (UIView*)view withNewCenter:(CGPoint )center
 {
     
     
@@ -202,12 +205,11 @@ static const int DEFAULTYRESULT = 389;
         //For the score Label
         
         UILabel * label = (UILabel *)view ;
-        self.distanceToBottomScoreLabelConstraint.constant  = center.y - (label.bounds.size.height/2);
-        self.distanceToLeftScoreLabelConstraint.constant = center.x - (label.bounds.size.height/2);
+        self.distanceToBottomScoreLabelConstraint.constant  = self.view.bounds.size.height - ( center.y + (label.bounds.size.height/2)); // wrong
+        self.distanceToLeftScoreLabelConstraint.constant =  center.x - (label.bounds.size.width/2);
         
         // I look for the appropriated size for this label
-        label.bounds = [self determinePerfectFrameForView:label withTextAttributes:attributes];
-        [label setNeedsDisplay];
+        //label.bounds = [self determinePerfectFrameForView:label withTextAttributes:attributes];
 
         
     }
@@ -221,7 +223,7 @@ static const int DEFAULTYRESULT = 389;
     if ([view isKindOfClass:[UILabel class]]){
         UILabel * label = (UILabel *)view ;
         perfetSize = [label.text sizeWithAttributes:attributes];
-        perfectFrame = CGRectMake(label.center.x, label.center.y, perfetSize.width, perfetSize.height);
+        perfectFrame = CGRectMake(label.bounds.origin.x, label.bounds.origin.y, perfetSize.width, perfetSize.height);
     }
     return perfectFrame;
 }
@@ -251,17 +253,19 @@ static const int DEFAULTYRESULT = 389;
             button.enabled = NO;
             
         }
-
+        
+        [self.view addSubview:self.scoreLabel];
         [self updateConstraintsOfUIElement:self.scoreLabel
-                             withNewCenter:self.view.center
-                        withTextAttributes:[self attributesForEndOfGame]];
+                             withNewCenter:self.view.center];
+
         NSMutableAttributedString *title =
         [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
         [title setAttributes:[self attributesForEndOfGame]
                        range:NSMakeRange(0, [title length])];
         self.scoreLabel.attributedText = title;
-       
-        
+        self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
+        self.widthScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width + 20;
+
         
     } completion:^(BOOL finished){
         // When the animation finished do something
