@@ -28,7 +28,10 @@
 
 @implementation CardGameViewController
 
-
+#define WIN_STATE @"WIN"
+#define NORMAL_STATE @"NORMAL"
+#define CONSTRAINT_FOR_NORMAL_STATE_LEFT 38
+#define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM 19
 -(void) viewDidLoad
 {
     [self resetUI];
@@ -93,7 +96,7 @@ static const int DEFAULTYSCORE = 452;
     [[NSMutableAttributedString alloc] initWithString: @"Score : 0"];
     self.scoreLabel.attributedText = attributedText;
     
-    [self updateConstraintsOfUIElement:self.scoreLabel withNewCenter:point];
+    [self updateConstraintsOfUIElement:self.scoreLabel forState:NORMAL_STATE withNewCenter:point];
     [self.scoreLabel setNeedsDisplay];
     
     // Reset the cards
@@ -111,7 +114,7 @@ static const int DEFAULTYSCORE = 452;
     
 }
 
- // The swipe gesture start a new game from scratch
+// The swipe gesture start a new game from scratch
 - (IBAction)swipeGesture:(UISwipeGestureRecognizer *)sender {
     
     [self resetUI];
@@ -120,97 +123,112 @@ static const int DEFAULTYSCORE = 452;
 
 - (IBAction)onChangeState:(UISegmentedControl *)sender {
     // you can set the match-mode, if a game started, it get erased
-
     
-        if ([sender isEnabledForSegmentAtIndex:1]) {
-            // if on it's a 3-card game
-            
-            self.game = [self createNewGameWithMaxMatching:3];
-            
-            
-        }else if ([sender isEnabledForSegmentAtIndex:0]){
-            // if off it's a 2-card game
-            
-            self.game = [self createNewGameWithMaxMatching:DEFAULT];
-            
-            
-        }
+    
+    if ([sender isEnabledForSegmentAtIndex:1]) {
+        // if on it's a 3-card game
+        
+        self.game = [self createNewGameWithMaxMatching:3];
+        
+        
+    }else if ([sender isEnabledForSegmentAtIndex:0]){
+        // if off it's a 2-card game
+        
+        self.game = [self createNewGameWithMaxMatching:DEFAULT];
+        
+        
+    }
     
     
     
 }
 
 
-// Deprecated
-static const int DEFAULTXRESULT = 160;
-static const int DEFAULTYRESULT = 389;
 
 -(void) updateUIwithResultofChoice:(NSString*)result{
     
-        for (UIButton * cardButton in self.cardButtons) {
-            NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
-            Card * card = [self.game cardAtIndex:index];
-            [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
-            [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-            cardButton.enabled = ! card.isMatched;
-            
-        }
-    
-        // Animation for result
-        [UIView animateWithDuration:0.75 delay:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-            
-            NSMutableAttributedString *title =
-            [[NSMutableAttributedString alloc] initWithString: result];
-            [title setAttributes:@{
-                                   NSFontAttributeName: [UIFont systemFontOfSize:15]
-                                   
-                                   }
-                           range:NSMakeRange(0, [title length])];
-            
-            self.resultOfChoiceLabel.attributedText = title;
-            //self.resultOfChoiceLabel.center = self.resultOfChoiceLabel.superview.center;
-            
-            
-        } completion:^(BOOL finished){
-            
-            // When the animation put the label back and verify end of game
-            
-            //self.resultOfChoiceLabel.center =  CGPointMake(DEFAULTXRESULT, DEFAULTYRESULT);
-            
-            [self endOfGameAnimation];
-            
-        }];
+    for (UIButton * cardButton in self.cardButtons) {
+        NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
+        Card * card = [self.game cardAtIndex:index];
+        [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+        cardButton.enabled = ! card.isMatched;
         
+    }
     
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score : %ld",(long)self.game.score];
+    // Animation for result
+    [UIView animateWithDuration:0.75 delay:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+        
+        NSMutableAttributedString *title =
+        [[NSMutableAttributedString alloc] initWithString: result];
+        [title setAttributes:@{
+                               NSFontAttributeName: [UIFont systemFontOfSize:15]
+                               
+                               }
+                       range:NSMakeRange(0, [title length])];
+        
+        self.resultOfChoiceLabel.attributedText = title;
+        //self.resultOfChoiceLabel.center = self.resultOfChoiceLabel.superview.center;
+        
+        
+    } completion:^(BOOL finished){
+        
+        // When the animation put the label back and verify end of game
+        
+        //self.resultOfChoiceLabel.center =  CGPointMake(DEFAULTXRESULT, DEFAULTYRESULT);
+        
+        [self endOfGameAnimation];
+        
+    }];
     
-  
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score : %ld",(long)self.game.score];
+    
+    
 }
 
 #define IDLABEL @"scoreLabel"
 
 -(NSDictionary *) attributesForEndOfGame{
     return   @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
-                                    NSStrokeWidthAttributeName : @3,
-                                    NSStrokeColorAttributeName : [UIColor whiteColor]};
+                NSStrokeWidthAttributeName : @3,
+                NSStrokeColorAttributeName : [UIColor whiteColor]};
 }
 
 
--(void)updateConstraintsOfUIElement: (UIView*)view withNewCenter:(CGPoint )center
+#define NORMAL_HEIGHT 19
+#define NORMAL_WIDTH 112
+-(void)updateConstraintsOfUIElement: (UIView*)view forState:(NSString *)state withNewCenter:(CGPoint )center
 {
     
     
     if ([view isKindOfClass:[UILabel class]] ){
-        
         //For the score Label
         
         UILabel * label = (UILabel *)view ;
-        self.distanceToBottomScoreLabelConstraint.constant  = self.view.bounds.size.height - ( center.y + (label.bounds.size.height/2)); // wrong
-        self.distanceToLeftScoreLabelConstraint.constant =  center.x - (label.bounds.size.width/2);
+        if ([state isEqualToString:WIN_STATE])
+        {
+            self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
+            self.widthScoreLabelConstraint.constant = ([self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width)+10  ;
+            self.distanceToBottomScoreLabelConstraint.constant  = self.view.bounds.size.height - ( center.y + (label.bounds.size.height/2)); // the label bounds changes, we can't rely on it
+            self.distanceToLeftScoreLabelConstraint.constant =  center.x - (label.bounds.size.width/2); // here neither
+            
+          
+            
+            
+        } else if ([state isEqualToString:NORMAL_STATE]){
+            self.distanceToBottomScoreLabelConstraint.constant  = CONSTRAINT_FOR_NORMAL_STATE_BOTTOM;
+            self.distanceToLeftScoreLabelConstraint.constant = CONSTRAINT_FOR_NORMAL_STATE_LEFT;
+         
+            self.heightScoreLabelConstraint.constant = NORMAL_HEIGHT;
+            self.widthScoreLabelConstraint.constant = NORMAL_WIDTH;
+            
+        }
+        
         
         // I look for the appropriated size for this label
-        //label.bounds = [self determinePerfectFrameForView:label withTextAttributes:attributes];
-
+        //label.bounds = [self determinePerfectFrameForView:label withTextAttributes:attributes]; iOs do that automatically
+        
         
     }
 }
@@ -242,7 +260,8 @@ static const int DEFAULTYRESULT = 389;
     win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
     [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
         
-        
+        [self.view layoutIfNeeded];
+
         for (UIButton * button in self.cardButtons){
             button.alpha = 0.25;
             NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
@@ -254,31 +273,22 @@ static const int DEFAULTYRESULT = 389;
             
         }
         
-        
-        
-        
+        NSMutableAttributedString *title =
+        [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
+        [title setAttributes:[self attributesForEndOfGame]
+                       range:NSMakeRange(0, [title length])];
+        self.scoreLabel.attributedText = title;
+        [self updateConstraintsOfUIElement:self.scoreLabel
+                                  forState:WIN_STATE
+                             withNewCenter:self.view.center];
+        [self.view layoutIfNeeded];
 
+        
+        
         
     } completion:^(BOOL finished){
         // When the animation finished do something
-        [UIView animateWithDuration:1.0
-                              delay:0.0
-                            options:UIViewAnimationOptionTransitionCurlUp
-                         animations:^{
-                             
-                             // it's not animating because of CoreAnimation
-                             self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
-                             self.widthScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width*1.25 ;
-                             
-                             NSMutableAttributedString *title =
-                             [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
-                             [title setAttributes:[self attributesForEndOfGame]
-                                            range:NSMakeRange(0, [title length])];
-                             self.scoreLabel.attributedText = title;
-                             [self updateConstraintsOfUIElement:self.scoreLabel
-                                                  withNewCenter:self.view.center];                         }
-                         completion:nil];
-       
+        
         
     }] ;
 }
@@ -287,11 +297,11 @@ static const int DEFAULTYRESULT = 389;
 
 
 -(void)endOfGameAnimation{
-
+    
     switch ([self.game endOfGame]) {
         case 1:
-        
-           
+            
+            
             // Animation for win
             [self endOfGameConfigurationWinning:YES];
             break;
@@ -302,14 +312,14 @@ static const int DEFAULTYRESULT = 389;
             
             // Animation for loose
             [self endOfGameConfigurationWinning:NO];
-
+            
             
             break;
             
             
             
-    
-}
+            
+    }
 }
 
 -(NSString *)titleForCard:(Card *)card{
@@ -327,10 +337,10 @@ static const int DEFAULTYRESULT = 389;
     
     
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
-
+    
     [self updateUIwithResultofChoice:[self.game chooseCardAtIndex:cardIndex]];
     
-
+    
     
 }
 #define MAXOFRECENTGAMES 20
@@ -363,12 +373,12 @@ static const int DEFAULTYRESULT = 389;
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     NSNumber *hs = [[NSNumber alloc]init];
     hs =[defaults objectForKey:HIGHSCORE] ;
-
+    
     NSNumber * highscore =  [[NSNumber alloc]init];
-                             highscore = hs;
+    highscore = hs;
     
     NSArray* scoreArray = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] sortedArrayUsingSelector:@selector(intValue)];
-   ( highscore > [scoreArray lastObject]) ? ( highscore = [scoreArray lastObject]): (highscore =[defaults objectForKey:HIGHSCORE]) ;
+    ( highscore > [scoreArray lastObject]) ? ( highscore = [scoreArray lastObject]): (highscore =[defaults objectForKey:HIGHSCORE]) ;
     
     
     //if it's the first game the dictionnary doesn't exist yet
@@ -385,16 +395,16 @@ static const int DEFAULTYRESULT = 389;
             ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
             [self findHighScore];
             ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:@"HIGHSCORE"];
-
+            
         }
     }
     
     
     
-        
+    
 }
-    
-    
+
+
 
 
 
