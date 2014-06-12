@@ -394,7 +394,7 @@ static const int DEFAULTYSCORE = 452;
         if ([segue.destinationViewController isKindOfClass:[ScoreTableViewController class]]){
             ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
             [self findHighScore];
-            ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:@"HIGHSCORE"];
+            ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:@"HIGHSCORE"];// for the high score I should try a delegate and a notification 
             
         }
     }
