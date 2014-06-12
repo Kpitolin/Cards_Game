@@ -192,7 +192,7 @@ static const int DEFAULTYSCORE = 452;
 -(NSDictionary *) attributesForEndOfGame{
     return   @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
                 NSStrokeWidthAttributeName : @3,
-                NSStrokeColorAttributeName : [UIColor whiteColor]};
+                NSStrokeColorAttributeName : [UIColor blackColor]};
 }
 
 
