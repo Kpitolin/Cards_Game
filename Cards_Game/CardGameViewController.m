@@ -249,7 +249,7 @@ static const int DEFAULTYSCORE = 452;
 -(void)endOfGameConfigurationWinning:(BOOL)win
 {
     [self saveScore];
-    
+    [self findHighScore];
     
     for (UIButton * button in self.cardButtons){
         button.enabled = NO;
@@ -366,13 +366,23 @@ static const int DEFAULTYSCORE = 452;
     {
         [games addObject: [NSNumber numberWithInt:self.game.score]];
     }
-    while ([games count] > MAXOFRECENTGAMES){
+   /* while ([games count] > MAXOFRECENTGAMES){
         [games removeLastObject];
     }
+    */
+    //NSArray* scoreArray = [games sortedArrayUsingSelector:@selector(intValue)]; // we order the array
     
     
+
+
     [defaults setObject:games forKey:SCORES];
     [defaults synchronize];
+    
+//    // We post a notification when the score array get changed
+//    NSDictionary *score_array = @{ @"SCORE_ARRAY" : scoreArray } ;
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SCORE_ARRAY"
+//                                                        object:self
+//                                                      userInfo:score_array];
 }
 
 -(void)findHighScore{
@@ -380,16 +390,32 @@ static const int DEFAULTYSCORE = 452;
     NSNumber *hs = [[NSNumber alloc]init];
     hs =[defaults objectForKey:HIGHSCORE] ;
     
-    NSNumber * highscore =  [[NSNumber alloc]init];
-    highscore = hs;
     
-    NSArray* scoreArray = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] sortedArrayUsingSelector:@selector(intValue)];
-    ( highscore > [scoreArray lastObject]) ? ( highscore = [scoreArray lastObject]): (highscore =[defaults objectForKey:HIGHSCORE]) ;
+    
+    
+    NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    NSMutableArray* scoreArray  = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] mutableCopy];
+    [scoreArray sortUsingDescriptors:@[highestToLowest]];
+    for (NSNumber* i in scoreArray ) {
+        NSLog(@"%@\t",i);
+
+    }
+    if( hs < [scoreArray lastObject]) { //the last object is the greatest
+       hs = [scoreArray lastObject] ;  // we update the highscore value
+    }
+  
     
     
     //if it's the first game the dictionnary doesn't exist yet
-    [defaults setObject:highscore forKey:HIGHSCORE];
+    [defaults setObject:hs forKey:HIGHSCORE];
     [defaults synchronize];
+    
+//    // We post a notification when the highscore get changed
+//    
+//    NSDictionary *highscore = @{ @"HIGHSCORE" : hs } ;
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"HIGHSCORE"
+//                                                        object:self
+//                                                      userInfo:highscore];
     
 }
 
@@ -398,9 +424,10 @@ static const int DEFAULTYSCORE = 452;
 {
     if ([segue.identifier isEqualToString:@"Display_score" ]  ) {
         if ([segue.destinationViewController isKindOfClass:[ScoreTableViewController class]]){
+            
             ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
-            [self findHighScore];
-            ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:@"HIGHSCORE"];// for the high score I should try a delegate and a notification
+            
+            ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:HIGHSCORE];// for the high score I should try a delegate and a notification
             
         }
     }
