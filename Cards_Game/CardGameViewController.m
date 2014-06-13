@@ -192,7 +192,7 @@ static const int DEFAULTYSCORE = 452;
 -(NSDictionary *) attributesForEndOfGame{
     return   @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
                 NSStrokeWidthAttributeName : @3,
-                NSStrokeColorAttributeName : [UIColor whiteColor]};
+                NSStrokeColorAttributeName : [UIColor blackColor]};
 }
 
 
@@ -259,9 +259,6 @@ static const int DEFAULTYSCORE = 452;
     NSString * endWord ;
     win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
     [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-        
-        [self.view layoutIfNeeded];
-
         for (UIButton * button in self.cardButtons){
             button.alpha = 0.25;
             NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
@@ -272,6 +269,9 @@ static const int DEFAULTYSCORE = 452;
             button.enabled = NO;
             
         }
+        [self.view layoutIfNeeded];
+
+        
         
         NSMutableAttributedString *title =
         [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
