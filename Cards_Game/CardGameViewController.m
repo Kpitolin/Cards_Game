@@ -152,7 +152,7 @@ static const int DEFAULTYSCORE = 452;
         Card * card = [self.game cardAtIndex:index];
         [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = ! card.isMatched; // it causes trouble at the end of the 2 cards game
+        cardButton.enabled = ! card.isMatched;
         
     }
     
@@ -328,6 +328,7 @@ static const int DEFAULTYSCORE = 452;
     }
 }
 
+
 -(NSString *)titleForCard:(Card *)card{
     return [card isChosen]? card.contents: @"" ;
 }
@@ -425,9 +426,12 @@ static const int DEFAULTYSCORE = 452;
     if ([segue.identifier isEqualToString:@"Display_score" ]  ) {
         if ([segue.destinationViewController isKindOfClass:[ScoreTableViewController class]]){
             
+            dispatch_queue_t load = dispatch_queue_create("score load", NULL);
+            dispatch_async(load, ^{
             ((ScoreTableViewController *)segue.destinationViewController).gameTable = [[NSUserDefaults standardUserDefaults] objectForKey:SCORES];
             
             ((ScoreTableViewController *)segue.destinationViewController).highscore =[[NSUserDefaults standardUserDefaults] objectForKey:HIGHSCORE];// for the high score I should try a delegate and a notification
+            });
             
         }
     }
