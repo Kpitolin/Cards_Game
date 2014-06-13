@@ -88,24 +88,27 @@ static const int COST_TO_CHOOSE = 1;
     Card * card = [self.cards objectAtIndex:index];
     id card_id ;
     id points;
-    NSInteger matchScore = 0;
+    int matchScore = 0;
     
     if (card.isChosen){
         
-        card.chosen = NO;
-        [self.cardToMatchWith removeObject:card];
-        self.numberOfCardsLeftToMatch++;
-    } else if(self.numberOfCardsLeftToMatch) {
+        card.chosen = NO; // we want to deselect it
+        [self.cardToMatchWith removeObject:card]; // if we chose a card for 2nd time, we want to remove it from the set of photos chosen to match together
+        self.numberOfCardsLeftToMatch++; //
+    }
+    else if(self.numberOfCardsLeftToMatch)
+    {
         
         self.numberOfCardsLeftToMatch--;
         
-        if( [self.cardToMatchWith count]== self.maxOfMatchingItems-1){
+        if( [self.cardToMatchWith count]== self.maxOfMatchingItems-1) // it means the player has selected the right number of cards and we can match them
+        {
             // match with last card and calculate score
             
             if([card isKindOfClass:[PlayingCard class]]){
                 card_id = (PlayingCard *)card;
-                points = [card_id arrayResult_match:self.cardToMatchWith][0];
-                matchScore =  [points isKindOfClass:[NSNumber class]] ? [points integerValue]: 0 ;
+                points = [card_id arrayResult_match:self.cardToMatchWith][0]; // we get the result from
+                matchScore =  [points isKindOfClass:[NSNumber class]] ? [points intValue] : 0 ;
                 
                 
             }
@@ -120,21 +123,28 @@ static const int COST_TO_CHOOSE = 1;
             if(matchScore)
             {
                 
-                self.score += matchScore *MATCH_BONUS;
+                
+                
+                
+                self.score += matchScore * MATCH_BONUS; // we apply the bonus to the player score
                 for(Card *cardMatched in self.cardToMatchWith){
-                    cardMatched.matched = YES;
-                    if(self.numberOfCardsMatched < [self.cards count]) self.numberOfCardsMatched ++;
-                    
+                    if(self.numberOfCardsMatched < [self.cards count]){
+                        cardMatched.matched = YES;
+                        self.numberOfCardsMatched ++; // we set the state of the cards to matched
+
+                    }
                 }
-                card.matched = YES;
-                self.numberOfCardsMatched ++;
+                if(self.numberOfCardsMatched < [self.cards count]) {
+                    card.matched = YES; // the current card is matched too
+                    self.numberOfCardsMatched ++;
+                }
                 
                 
                 
                 id result = [card_id arrayResult_match:self.cardToMatchWith][1];
                 NSString *begin = [result isKindOfClass:[NSString class]] ? (NSString *)result : @"";
                 
-                resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %ld %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"];
+                resultOfchoice = [NSString stringWithFormat:@"%@\nYou get %d %@",begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"]; // show the result for the local score
                 
                 
             }
@@ -153,9 +163,9 @@ static const int COST_TO_CHOOSE = 1;
         
         
         
+        //it enters here at end 2 full win but it couldn't
         
-        
-        if (card.isMatched) // if the card matched  all the x cards matched
+        if (card.isMatched && matchScore) // if the card matched  all the x cards matched
             
         {
             [self.cardToMatchWith removeAllObjects ] ;// cleans up the array for next time
@@ -203,7 +213,7 @@ static const int JEUNF = 3;
 -(int) endOfGame { // determine game's end
     int end = JEUNF;
     Card * card;
-    Card * cardToMatchFirst;
+   // Card * cardToMatchFirst;
     id card_id ;
     id points;
     NSMutableArray *restOfCards = [[NSMutableArray alloc]init];

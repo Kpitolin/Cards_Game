@@ -258,7 +258,7 @@ static const int DEFAULTYSCORE = 452;
     // Animation for winning/losing
     NSString * endWord ;
     win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
-    [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+    [UIView animateWithDuration:1.0 delay:0.20 options:UIViewAnimationOptionTransitionCurlUp animations:^{
         for (UIButton * button in self.cardButtons){
             button.alpha = 0.25;
             NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards

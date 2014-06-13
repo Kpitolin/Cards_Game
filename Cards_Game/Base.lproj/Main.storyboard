@@ -16,21 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Une-Df-MGp">
-                                <rect key="frame" x="121" y="355" width="78" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Une-Df-MGp">
+                                <rect key="frame" x="91" y="328" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="O3d-p4-Cew"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Valider">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Let's play !">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="mUi-SB-LY7"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="162" translatesAutoresizingMaskIntoConstraints="NO" id="3DV-GD-eyb">
-                                <rect key="frame" x="-80" y="159" width="480" height="162"/>
+                            <pickerView contentMode="center" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="162" translatesAutoresizingMaskIntoConstraints="NO" id="3DV-GD-eyb">
+                                <rect key="frame" x="20" y="158" width="280" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" playsSound="YES"/>
                                 </accessibility>
@@ -39,9 +45,11 @@
                                     <outlet property="delegate" destination="mfQ-07-6JJ" id="z1e-zI-BxH"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Couleur de carte :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl5-VN-c0z">
-                                <rect key="frame" x="74" y="111" width="173" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card's color :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl5-VN-c0z">
+                                <rect key="frame" x="74" y="125" width="173" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -49,11 +57,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="GR4-EN-OMg"/>
-                            <constraint firstAttribute="centerY" secondItem="3DV-GD-eyb" secondAttribute="centerY" id="TRH-8Y-i88"/>
+                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="56Y-wf-xdc"/>
+                            <constraint firstItem="Une-Df-MGp" firstAttribute="top" secondItem="3DV-GD-eyb" secondAttribute="bottom" constant="8" symbolic="YES" id="ASP-9c-42c"/>
+                            <constraint firstAttribute="trailing" secondItem="3DV-GD-eyb" secondAttribute="trailing" constant="20" symbolic="YES" id="OWd-Mw-RPt"/>
+                            <constraint firstItem="3DV-GD-eyb" firstAttribute="top" secondItem="Zl5-VN-c0z" secondAttribute="bottom" constant="7" id="fBi-Vc-sU4"/>
+                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="74" id="lE3-pf-d5I"/>
+                            <constraint firstItem="Une-Df-MGp" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="91" id="mpx-Ge-q5E"/>
+                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="top" secondItem="Stc-TP-z5p" secondAttribute="bottom" constant="61" id="ozk-26-3Fn"/>
+                            <constraint firstItem="3DV-GD-eyb" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="20" symbolic="YES" id="yT2-Sk-Pf2"/>
+                            <constraint firstItem="Une-Df-MGp" firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="zKe-FV-YmM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5rB-yA-La2"/>
+                    <navigationItem key="navigationItem" id="5rB-yA-La2">
+                        <barButtonItem key="backBarButtonItem" title="Color" id="c2e-DT-fq3"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="pickerOfColor" destination="3DV-GD-eyb" id="uNa-m1-fUJ"/>
                     </connections>
@@ -75,144 +92,156 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3r-rp-kFh">
-                                <rect key="frame" x="29" y="78" width="60" height="88"/>
+                                <rect key="frame" x="32" y="82" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xa0-ul-xEH"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-X4-2E0">
-                                <rect key="frame" x="97" y="78" width="60" height="88"/>
+                                <rect key="frame" x="100" y="82" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FzN-67-mOl"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-16-PL5">
-                                <rect key="frame" x="164" y="78" width="60" height="88"/>
+                                <rect key="frame" x="167" y="82" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="47e-Um-ZMZ"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxA-Jj-tA6">
-                                <rect key="frame" x="232" y="78" width="60" height="88"/>
+                                <rect key="frame" x="235" y="82" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dTT-5L-ylE"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-er-Uzk">
-                                <rect key="frame" x="29" y="179" width="60" height="88"/>
+                                <rect key="frame" x="32" y="183" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jNS-Vn-X4F"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3U-Gk-Hzr">
-                                <rect key="frame" x="97" y="179" width="60" height="88"/>
+                                <rect key="frame" x="100" y="183" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LBo-eT-FSq"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvo-qE-AzG">
-                                <rect key="frame" x="164" y="179" width="60" height="88"/>
+                                <rect key="frame" x="167" y="183" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="weC-Rt-5Ru"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fr-eu-Ukf">
-                                <rect key="frame" x="232" y="179" width="60" height="88"/>
+                                <rect key="frame" x="235" y="183" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="abn-f2-IOb"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-i6-XsC">
-                                <rect key="frame" x="29" y="280" width="60" height="88"/>
+                                <rect key="frame" x="32" y="284" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1vz-ty-94q"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-Fk-SSh">
-                                <rect key="frame" x="97" y="280" width="60" height="88"/>
+                                <rect key="frame" x="100" y="284" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c6j-Bs-MVr"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6p-yf-9lO">
-                                <rect key="frame" x="164" y="280" width="60" height="88"/>
+                                <rect key="frame" x="167" y="284" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cns-Q1-Uii"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnJ-QS-7hS">
-                                <rect key="frame" x="232" y="280" width="60" height="88"/>
+                                <rect key="frame" x="235" y="284" width="60" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sxn-fC-vkC"/>
@@ -270,7 +299,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="chB-Mi-WJZ">
-                        <barButtonItem key="backBarButtonItem" title="Retour" id="LTd-sn-MZT"/>
+                        <barButtonItem key="backBarButtonItem" title="Game" id="LTd-sn-MZT"/>
                         <barButtonItem key="rightBarButtonItem" title="Scores" id="19G-mP-5ij">
                             <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -383,7 +412,7 @@
             <point key="canvasLocation" x="1441" y="-799"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
