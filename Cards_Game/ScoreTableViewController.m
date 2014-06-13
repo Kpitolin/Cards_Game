@@ -34,10 +34,7 @@
 
 }
 
--(void)awakeFromNib
-{
-    [self.tableView reloadData];
-}
+
 
 
 #pragma mark - Table view data source
