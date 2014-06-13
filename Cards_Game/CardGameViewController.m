@@ -152,7 +152,7 @@ static const int DEFAULTYSCORE = 452;
         Card * card = [self.game cardAtIndex:index];
         [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = ! card.isMatched;
+        cardButton.enabled = ! card.isMatched; // it causes trouble at the end of the 2 cards game
         
     }
     
@@ -258,7 +258,9 @@ static const int DEFAULTYSCORE = 452;
     // Animation for winning/losing
     NSString * endWord ;
     win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
-    [UIView animateWithDuration:1.0 delay:0.20 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+        
+        
         for (UIButton * button in self.cardButtons){
             button.alpha = 0.25;
             NSUInteger index  = [self.cardButtons indexOfObject:button]; // We want to see the last cards
@@ -269,26 +271,30 @@ static const int DEFAULTYSCORE = 452;
             button.enabled = NO;
             
         }
-        [self.view layoutIfNeeded];
-
-        
-        
-        NSMutableAttributedString *title =
-        [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
-        [title setAttributes:[self attributesForEndOfGame]
-                       range:NSMakeRange(0, [title length])];
-        self.scoreLabel.attributedText = title;
-        [self updateConstraintsOfUIElement:self.scoreLabel
-                                  forState:WIN_STATE
-                             withNewCenter:self.view.center];
-        [self.view layoutIfNeeded];
-
-        
         
         
     } completion:^(BOOL finished){
         // When the animation finished do something
-        
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+            NSMutableAttributedString *title =
+            [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
+            [title setAttributes:[self attributesForEndOfGame]
+                           range:NSMakeRange(0, [title length])];
+            self.scoreLabel.attributedText = title;
+            [self updateConstraintsOfUIElement:self.scoreLabel
+                                      forState:WIN_STATE
+                                 withNewCenter:self.view.center];
+            [self.view layoutIfNeeded];
+
+            
+           
+            
+            
+            
+        }completion:nil];
         
     }] ;
 }
