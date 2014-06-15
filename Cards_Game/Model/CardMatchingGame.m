@@ -131,7 +131,7 @@ static const int COST_TO_CHOOSE = 1;
                     if(self.numberOfCardsMatched < [self.cards count]){
                         cardMatched.matched = YES;
                         self.numberOfCardsMatched ++; // we set the state of the cards to matched
-
+                        
                     }
                 }
                 if(self.numberOfCardsMatched < [self.cards count]) {
@@ -213,7 +213,6 @@ static const int JEUNF = 3;
 -(int) endOfGame { // determine game's end
     int end = JEUNF;
     Card * card;
-   // Card * cardToMatchFirst;
     id card_id ;
     id points;
     NSMutableArray *restOfCards = [[NSMutableArray alloc]init];
@@ -254,8 +253,8 @@ static const int JEUNF = 3;
         
         
         //MAKE THIS MORE GENERIC
-    }/*else if (self.maxOfMatchingItems==2 && !self.numberOfCardsLeftToMatch){  //handle case with the four last
-                                                                                //cards who don't match
+    }else if (self.maxOfMatchingItems==2  && [self.cards count]-self.numberOfCardsMatched ==4 ){  //handle case with the four last
+        //cards who don't match
         
         for (card in self.cards) {
             
@@ -264,39 +263,32 @@ static const int JEUNF = 3;
             }
             
         }
-        if(self.numberOfCardsMatched == [self.cards count]-2*self.maxOfMatchingItems && [restOfCards count]==2*self.maxOfMatchingItems){
         
         
-        for( card in restOfCards){
+        for( card in restOfCards ){
+            if([card isKindOfClass:[PlayingCard class]]){
+                card_id = (PlayingCard *)card;
+            }
             
             // repeat this to see for all last cards
-            for (cardToMatchFirst in restOfCards){
-                if([card isKindOfClass:[PlayingCard class]]){
-                    card_id = (PlayingCard *)card;
+            for (PlayingCard * card_2 in restOfCards ){
+                
+                if (! [card_2.contents isEqualToString:((PlayingCard *)card_id).contents]) {
                     
-                    if(![cardToMatchFirst.contents isEqualToString: card.contents]){
-                        points =[card_id arrayResult_match: [NSMutableArray arrayWithObject:cardToMatchFirst]][0];
-                        if (([points isKindOfClass:[NSNumber class]] ? [points integerValue]: 0)){   // if 2 cards  matched it stops
-                            return end;
-                        }
-                        
-                    }
+                
+                points =[card_id arrayResult_match: [NSMutableArray arrayWithObject:card_2]][0];
+                if (([points isKindOfClass:[NSNumber class]] ? [points integerValue]: 0)){   // if 2 cards  matched it stops
+                    return end;
+                }
+                
                 }
             }
+
         }
-        
+        //if the cards didn't matched return the score
         self.score > 0 ? (end = JEUFG): (end = JEUFP);
-        }
         
-    }*/
-    
-            
-        
-        
-    
-    
-    
-    
+    }
     
     return end;
 }
