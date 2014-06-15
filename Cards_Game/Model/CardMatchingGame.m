@@ -174,7 +174,7 @@ static const int COST_TO_CHOOSE = 1;
         }else if ([self.cardToMatchWith count]== self.maxOfMatchingItems-1 && !matchScore ){ // if the cards didn't match
             
             [self.cardToMatchWith removeAllObjects ] ;// cleans up the array for next time
-            [self putBackEnabledCardsFaceUp]; // if a card is still face up we need it to match with other cards for next time
+            [self putBackEnabledCardsFaceUp]; // for 3 cards: if a card is still face up we need it to match with other cards for next time
             
         }
         else
@@ -253,7 +253,7 @@ static const int JEUNF = 3;
         
         
         //MAKE THIS MORE GENERIC
-    }else if (self.maxOfMatchingItems==2  && [self.cards count]-self.numberOfCardsMatched ==4 ){  //handle case with the four last
+    }else if (self.maxOfMatchingItems==2  && [self.cards count]-self.numberOfCardsMatched ==4 && self.numberOfCardsLeftToMatch==2){  //handle case with the four last
         //cards who don't match
         
         for (card in self.cards) {
