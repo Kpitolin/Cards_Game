@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pn-Q0-iWd">
-                                <rect key="frame" x="289" y="722" width="191" height="36"/>
+                                <rect key="frame" x="296" y="722" width="177" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TZx-zh-ylY" kind="push" id="eRV-lt-9hY"/>
+                                    <segue destination="TZx-zh-ylY" kind="push" identifier="" id="eRV-lt-9hY"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="center" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="162" translatesAutoresizingMaskIntoConstraints="NO" id="IZR-5X-uf6">
@@ -46,12 +46,11 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card's color :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvL-Hu-jXp">
-                                <rect key="frame" x="289" y="269" width="191" height="26"/>
+                                <rect key="frame" x="296" y="269" width="177" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="191" id="3ph-Z9-Eth"/>
                                     <constraint firstAttribute="height" constant="26" id="xC0-4K-AwV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>

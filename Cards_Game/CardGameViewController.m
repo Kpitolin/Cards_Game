@@ -383,10 +383,7 @@ static const int DEFAULTYSCORE = 452;
     {
         [games addObject: [NSNumber numberWithInt:self.game.score]];
     }
-   /* while ([games count] > MAXOFRECENTGAMES){
-        [games removeLastObject];
-    }
-    */
+   
     //NSArray* scoreArray = [games sortedArrayUsingSelector:@selector(intValue)]; // we order the array
     
     
@@ -395,11 +392,7 @@ static const int DEFAULTYSCORE = 452;
     [defaults setObject:games forKey:SCORES];
     [defaults synchronize];
     
-//    // We post a notification when the score array get changed
-//    NSDictionary *score_array = @{ @"SCORE_ARRAY" : scoreArray } ;
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SCORE_ARRAY"
-//                                                        object:self
-//                                                      userInfo:score_array];
+
 }
 
 -(void)findHighScore{
@@ -427,12 +420,7 @@ static const int DEFAULTYSCORE = 452;
     [defaults setObject:hs forKey:HIGHSCORE];
     [defaults synchronize];
     
-//    // We post a notification when the highscore get changed
-//    
-//    NSDictionary *highscore = @{ @"HIGHSCORE" : hs } ;
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"HIGHSCORE"
-//                                                        object:self
-//                                                      userInfo:highscore];
+
     
 }
 
