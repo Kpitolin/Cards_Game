@@ -55,7 +55,8 @@
 
 
 
-
+#define SCORE_TABLE_WIN NSLocalizedStringFromTable (@"SCORE_TABLE_WIN", @"Message given to user in the score table for the won games",  @"ScoreTableViewController")
+#define SCORE_TABLE_LOSE NSLocalizedStringFromTable (@"SCORE_TABLE_LOSE", @"Message given to user in the score table for the lost games",  @"ScoreTableViewController")
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -72,16 +73,16 @@
     }
 
     if([[self.gameTable objectAtIndex:indexPath.row] intValue ] > 0){
-        cell.textLabel.text = @"Win !";
+        cell.textLabel.text = SCORE_TABLE_WIN;
         string = @"Points";
 
     }else if ([[self.gameTable objectAtIndex:indexPath.row] intValue ]== 0){
        string = @"Point";
-        cell.textLabel.text = @"Lost !" ;
+        cell.textLabel.text = SCORE_TABLE_LOSE ;
         
     }else{
         string = @"Points";
-        cell.textLabel.text = @"Lost !" ;
+        cell.textLabel.text = SCORE_TABLE_LOSE ;
     }
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[self.gameTable objectAtIndex:indexPath.row], string];

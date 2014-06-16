@@ -154,7 +154,7 @@ static const int COST_TO_CHOOSE = 1;
                 
                 // We impose a penalty if there's no match
                 self.score -= MISMATCH_PENALTY;
-                resultOfchoice = [NSString stringWithFormat:@"You get -%d points" ,MISMATCH_PENALTY];
+                resultOfchoice = [NSString stringWithFormat:@"%@ -%d points",SCORE_ANNOUNCEMENT_BEGINNING ,MISMATCH_PENALTY];
             }
             
         }

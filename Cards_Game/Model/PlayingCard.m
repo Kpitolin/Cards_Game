@@ -41,6 +41,16 @@
     
 }
 
+#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_2CARDS NSLocalizedStringFromTable (@"MATCH_2", @"Message given to user every time he tries to match cards (2 cards : they match)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_2CARDS NSLocalizedStringFromTable (@"NOT_MATCH_2", @"Message given to user every time he tries to match cards (2 cards : they don't match)",  @"PlayingCard")
+
+#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_3CARDS NSLocalizedStringFromTable (@"MATCH_3", @"Message given to user every time he tries to match cards (3 cards : they match)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_3CARDS NSLocalizedStringFromTable (@"NOT_MATCH", @"Message given to user every time he tries to match cards (3 cards : they don't match)",  @"PlayingCard")
+#define AND NSLocalizedStringFromTable (@"AND", @"et",  @"PlayingCard")
+#define OR NSLocalizedStringFromTable (@"OR", @"ou",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_MIXED_PAIR", @"Message given to user every time he tries to match cards (3 cards : mixed pair)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_SUIT_PAIR", @"Message given to user every time he tries to match cards (3 cards : suit pair)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_RANK_PAIR", @"Message given to user every time he tries to match cards (3 cards : rank pair)",  @"PlayingCard")
 
 
 
@@ -57,16 +67,16 @@
                 PlayingCard *otherCard =  (PlayingCard *)card;
                 if([self.suit isEqualToString: otherCard.suit]){
                     score = POINTS_SUIT_PAIR;
-                    result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
+                    result =  [NSString stringWithFormat:@"%@ %@ %@",self.contents,RESULT_OF_CHOICE_SENTENCE_POSITIVE_2CARDS,otherCard.contents] ;
                    // otherCard.matched = YES;
                     
                 }else if(self.rank ==otherCard.rank){
                     score = POINTS_RANK_PAIR;
-                    result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
+                    result =  [NSString stringWithFormat:@"%@ %@ %@",self.contents,RESULT_OF_CHOICE_SENTENCE_POSITIVE_2CARDS,otherCard.contents] ;
                  //   otherCard.matched = YES;
                     
                 } else {
-                    result = [NSString stringWithFormat:@"%@ doesn't match with %@" ,self.contents,otherCard.contents] ;
+                    result = [NSString stringWithFormat:@"%@ %@ %@" ,self.contents,RESULT_OF_CHOICE_SENTENCE_NEGATIVE_2CARDS,otherCard.contents] ;
                 }
             }
             
@@ -89,7 +99,7 @@
                 {
                     
                     score  = POINTS_SUIT_TRIO;
-                    result = [NSString stringWithFormat:@"%@  matches with %@ and %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@"%@  %@ %@ %@ %@" ,self.contents,RESULT_OF_CHOICE_SENTENCE_POSITIVE_3CARDS,otherCard.contents,AND,otherCard2.contents] ;
                     
                 }else  if (([self.suit isEqualToString: otherCard.suit] || [self.suit isEqualToString: otherCard2.suit]|| [otherCard2.suit isEqualToString: otherCard.suit])
                            
@@ -98,27 +108,27 @@
                     
                 {
                     score = POINTS_MIXED_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a mixed pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@" %@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS] ;
                 }else if (self.rank ==otherCard.rank && self.rank ==otherCard2.rank)
                     
                 {
                     score = POINTS_RANK_TRIO;
-                    result = [NSString stringWithFormat:@"%@  matches with %@ and %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@"%@  %@ %@ %@ %@" ,self.contents,RESULT_OF_CHOICE_SENTENCE_POSITIVE_3CARDS,otherCard.contents,AND,otherCard2.contents] ;
                     
                 }else if([self.suit isEqualToString: otherCard.suit] || [self.suit isEqualToString: otherCard2.suit]|| [otherCard2.suit isEqualToString: otherCard.suit])
                     
                 {
                     score = POINTS_SUIT_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a suit pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@"%@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS] ;
                     
                 }else if (self.rank ==otherCard.rank || self.rank ==otherCard2.rank || otherCard2.rank ==otherCard.rank)
                 {
                     
                     score = POINTS_RANK_PAIR;
-                    result = [NSString stringWithFormat:@" Between %@, %@ and %@\nthere's a rank pair in the air" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@"%@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS] ;
                     
                 }else {
-                    result = [NSString stringWithFormat:@"%@ doesn't match with %@ or %@" ,self.contents,otherCard.contents,otherCard2.contents] ;
+                    result = [NSString stringWithFormat:@"%@ %@ %@ %@ %@" ,self.contents,RESULT_OF_CHOICE_SENTENCE_NEGATIVE_3CARDS,otherCard.contents,OR,otherCard2.contents] ;
                 }
             }
             
