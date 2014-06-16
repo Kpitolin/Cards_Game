@@ -215,10 +215,10 @@ static const int DEFAULTYSCORE = 452;
         UILabel * label = (UILabel *)view ;
         if ([state isEqualToString:WIN_STATE])
         {
-            self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height;
+            self.heightScoreLabelConstraint.constant = [self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.height + 40;
             self.widthScoreLabelConstraint.constant = ([self determinePerfectFrameForView:self.scoreLabel withTextAttributes:[self attributesForEndOfGame]].size.width)+10  ;
-            self.distanceToBottomScoreLabelConstraint.constant  = self.view.bounds.size.height - ( center.y + (label.bounds.size.height/2)); // the label bounds changes, we can't rely on it
-            self.distanceToLeftScoreLabelConstraint.constant =  center.x - (label.bounds.size.width/2); // here neither
+            self.distanceToBottomScoreLabelConstraint.constant  = (self.view.bounds.size.height+40) - ( center.y + ((label.bounds.size.height+40)/2)); // the label bounds changes, we can't rely on it
+            self.distanceToLeftScoreLabelConstraint.constant =  center.x - ((label.bounds.size.width+10)/2); // here neither
             
           
             
