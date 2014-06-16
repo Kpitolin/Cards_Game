@@ -108,7 +108,7 @@
                     
                 {
                     score = POINTS_MIXED_PAIR;
-                    result = [NSString stringWithFormat:@" %@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS] ;
+                    result = [NSString stringWithFormat:@" %@, %@ %@ %@%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS] ;
                 }else if (self.rank ==otherCard.rank && self.rank ==otherCard2.rank)
                     
                 {
@@ -119,13 +119,13 @@
                     
                 {
                     score = POINTS_SUIT_PAIR;
-                    result = [NSString stringWithFormat:@"%@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS] ;
+                    result = [NSString stringWithFormat:@"%@, %@ %@ %@%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS] ;
                     
                 }else if (self.rank ==otherCard.rank || self.rank ==otherCard2.rank || otherCard2.rank ==otherCard.rank)
                 {
                     
                     score = POINTS_RANK_PAIR;
-                    result = [NSString stringWithFormat:@"%@, %@ %@ %@\n%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS] ;
+                    result = [NSString stringWithFormat:@"%@, %@ %@ %@%@" ,self.contents,otherCard.contents,AND,otherCard2.contents,RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS] ;
                     
                 }else {
                     result = [NSString stringWithFormat:@"%@ %@ %@ %@ %@" ,self.contents,RESULT_OF_CHOICE_SENTENCE_NEGATIVE_3CARDS,otherCard.contents,OR,otherCard2.contents] ;
