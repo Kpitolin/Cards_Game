@@ -10,7 +10,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="rEk-ng-T7V" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ly-fS-jwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="-1368"/>
+            <point key="canvasLocation" x="1742" y="-1416"/>
         </scene>
         <!--Begin View Controller-->
         <scene sceneID="58k-EJ-Tf1">

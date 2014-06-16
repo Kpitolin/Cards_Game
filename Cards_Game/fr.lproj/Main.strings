@@ -1,0 +1,30 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Scores"; ObjectID = "19G-mP-5ij"; */
+"19G-mP-5ij.title" = "Scores";
+
+/* Class = "IBUISegmentedControl"; LCy-C6-cVy.segmentTitles[0] = "2 cards"; ObjectID = "LCy-C6-cVy"; */
+"LCy-C6-cVy.segmentTitles[0]" = "2 cartes";
+
+/* Class = "IBUISegmentedControl"; LCy-C6-cVy.segmentTitles[1] = "3 cards"; ObjectID = "LCy-C6-cVy"; */
+"LCy-C6-cVy.segmentTitles[1]" = "3 cartes";
+
+/* Class = "IBUIBarButtonItem"; title = "Game"; ObjectID = "LTd-sn-MZT"; */
+"LTd-sn-MZT.title" = "Jeu";
+
+/* Class = "IBUIButton"; normalTitle = "Let's play !"; ObjectID = "Une-Df-MGp"; */
+"Une-Df-MGp.normalTitle" = "Jouer";
+
+/* Class = "IBUILabel"; text = "Card's color :"; ObjectID = "Zl5-VN-c0z"; */
+"Zl5-VN-c0z.text" = "Couleur de carte :";
+
+/* Class = "IBUIBarButtonItem"; title = "Color"; ObjectID = "c2e-DT-fq3"; */
+"c2e-DT-fq3.title" = "Couleur";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "dXg-b1-hUM"; */
+"dXg-b1-hUM.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "snL-YF-fdp"; */
+"snL-YF-fdp.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Score : 0"; ObjectID = "v8g-Km-MzM"; */
+"v8g-Km-MzM.text" = "Score : 0";

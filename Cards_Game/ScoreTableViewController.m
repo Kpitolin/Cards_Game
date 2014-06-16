@@ -72,16 +72,16 @@
     }
 
     if([[self.gameTable objectAtIndex:indexPath.row] intValue ] > 0){
-        cell.textLabel.text = @"Gagné !";
+        cell.textLabel.text = @"Win !";
         string = @"Points";
 
     }else if ([[self.gameTable objectAtIndex:indexPath.row] intValue ]== 0){
        string = @"Point";
-        cell.textLabel.text = @"Perdu !" ;
+        cell.textLabel.text = @"Lost !" ;
         
     }else{
         string = @"Points";
-        cell.textLabel.text = @"Perdu !" ;
+        cell.textLabel.text = @"Lost !" ;
     }
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[self.gameTable objectAtIndex:indexPath.row], string];

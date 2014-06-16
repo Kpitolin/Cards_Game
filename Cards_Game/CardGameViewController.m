@@ -246,6 +246,9 @@ static const int DEFAULTYSCORE = 452;
     return perfectFrame;
 }
 
+#define END_SENTENCE_WIN NSLocalizedStringFromTable(@"SENTENCE_WIN", @"Message given to user at the end of the game if he loses", @"CardGameViewController")
+#define END_SENTENCE_LOSE NSLocalizedStringFromTable(@"SENTENCE_LOSE", @"Message given to user at the end of the game if he wins",  @"CardGameViewController")
+
 -(void)endOfGameConfigurationWinning:(BOOL)win
 {
     [self saveScore];
@@ -257,7 +260,7 @@ static const int DEFAULTYSCORE = 452;
     }
     // Animation for winning/losing
     NSString * endWord ;
-    win ? (endWord = @"WIN"): (endWord = @"LOSE") ;
+    win ? (endWord = END_SENTENCE_WIN): (endWord = END_SENTENCE_LOSE) ;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
         
         
@@ -280,7 +283,7 @@ static const int DEFAULTYSCORE = 452;
             [self.view layoutIfNeeded];
             
             NSMutableAttributedString *title =
-            [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"YOU %@\n%i points",endWord,self.game.score]];
+            [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@\n%i points",endWord,self.game.score]];
             [title setAttributes:[self attributesForEndOfGame]
                            range:NSMakeRange(0, [title length])];
             self.scoreLabel.attributedText = title;
