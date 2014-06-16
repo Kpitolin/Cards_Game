@@ -12,6 +12,7 @@
 		0A6A0D4E194F19B80083112E /* CardMatchingGame.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A6A0D50194F19B80083112E /* CardMatchingGame.strings */; };
 		0A6A0D51194F19BC0083112E /* PlayingCard.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A6A0D53194F19BC0083112E /* PlayingCard.strings */; };
 		0A6A0D5D194F1D960083112E /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A0D5C194F1D960083112E /* PlayingCard.m */; };
+		0A6A0D60194F37170083112E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6A0D5E194F37170083112E /* Storyboard.storyboard */; };
 		DE204582193E766000C0892F /* BeginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE204581193E766000C0892F /* BeginViewController.m */; };
 		DE382E5C18F011000072D9B4 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = DE382E5B18F011000072D9B4 /* CardMatchingGame.m */; };
 		DE382E6218F011510072D9B4 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DE382E6018F011510072D9B4 /* PlayingCardDeck.m */; };
@@ -61,6 +62,8 @@
 		0A6A0D5A194F1B4C0083112E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlayingCard.strings; sourceTree = "<group>"; };
 		0A6A0D5B194F1B4D0083112E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PlayingCard.strings; sourceTree = "<group>"; };
 		0A6A0D5C194F1D960083112E /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		0A6A0D5F194F37170083112E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
+		0A6A0D64194F37220083112E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Storyboard.strings; sourceTree = "<group>"; };
 		DE204580193E766000C0892F /* BeginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeginViewController.h; sourceTree = "<group>"; };
 		DE204581193E766000C0892F /* BeginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeginViewController.m; sourceTree = "<group>"; };
 		DE382E5A18F011000072D9B4 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 				0A6A0D50194F19B80083112E /* CardMatchingGame.strings */,
 				0A6A0D53194F19BC0083112E /* PlayingCard.strings */,
 				DE6C5A0818EF363E00E6D64D /* Main.storyboard */,
+				0A6A0D5E194F37170083112E /* Storyboard.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,6 +323,7 @@
 				DE6C5A0118EF363E00E6D64D /* InfoPlist.strings in Resources */,
 				DE6C5A0A18EF363E00E6D64D /* Main.storyboard in Resources */,
 				0A6A0D4E194F19B80083112E /* CardMatchingGame.strings in Resources */,
+				0A6A0D60194F37170083112E /* Storyboard.storyboard in Resources */,
 				0A6A0D4B194F19B30083112E /* ScoreTableViewController.strings in Resources */,
 				0A6A0D48194F19B00083112E /* CardGameViewController.strings in Resources */,
 			);
@@ -411,6 +416,15 @@
 			);
 			name = PlayingCard.strings;
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0A6A0D5E194F37170083112E /* Storyboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A6A0D5F194F37170083112E /* Base */,
+				0A6A0D64194F37220083112E /* fr */,
+			);
+			name = Storyboard.storyboard;
 			sourceTree = "<group>";
 		};
 		DE6C59FF18EF363E00E6D64D /* InfoPlist.strings */ = {
@@ -526,7 +540,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "Cards Game";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -544,7 +558,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "Cards Game";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
