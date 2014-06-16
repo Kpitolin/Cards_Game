@@ -403,13 +403,10 @@ static const int DEFAULTYSCORE = 452;
     
     
     
-    NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    NSSortDescriptor *LowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
     NSMutableArray* scoreArray  = [[[NSUserDefaults standardUserDefaults] objectForKey:SCORES] mutableCopy];
-    [scoreArray sortUsingDescriptors:@[highestToLowest]];
-    for (NSNumber* i in scoreArray ) {
-        NSLog(@"%@\t",i);
-
-    }
+    [scoreArray sortUsingDescriptors:@[LowestToHighest]];
+   
     if( hs < [scoreArray lastObject]) { //the last object is the greatest
        hs = [scoreArray lastObject] ;  // we update the highscore value
     }

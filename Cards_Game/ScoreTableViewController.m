@@ -64,6 +64,7 @@
     
     // Configure the cell...
     NSString * string ;
+
     if ([[self.gameTable objectAtIndex:indexPath.row] intValue] == [self.highscore intValue]){
         cell.detailTextLabel.textColor = [UIColor redColor];
     
