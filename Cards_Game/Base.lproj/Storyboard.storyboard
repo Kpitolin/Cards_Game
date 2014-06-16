@@ -94,15 +94,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPw-nE-G2Z">
-                                <rect key="frame" x="68" y="128" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPw-nE-G2Z">
+                                <rect key="frame" x="82" y="128" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="lFi-Oz-zpz"/>
                                     <constraint firstAttribute="width" constant="117" id="mPS-f1-pQo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,15 +112,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="gUz-lQ-oWI"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REd-eq-VT9">
-                                <rect key="frame" x="232" y="128" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REd-eq-VT9">
+                                <rect key="frame" x="246" y="128" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="e4b-Tu-Y0k"/>
                                     <constraint firstAttribute="width" constant="117" id="mrs-fq-DvV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,17 +130,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="GWS-mq-oSq"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-5u-qGh">
-                                <rect key="frame" x="396" y="128" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-5u-qGh">
+                                <rect key="frame" x="410" y="128" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="GSy-V6-gOj"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="169" id="KLe-f9-Nzv"/>
                                     <constraint firstAttribute="width" constant="117" id="hIq-7O-Vg6"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="xJj-ak-vUt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,15 +148,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="kJ4-dX-GQ4"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwR-e9-F8x">
-                                <rect key="frame" x="580" y="128" width="111" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwR-e9-F8x">
+                                <rect key="frame" x="574" y="128" width="111" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="Xaf-oz-qxD"/>
                                     <constraint firstAttribute="width" constant="111" id="a2L-eo-Oft"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,15 +166,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="AVq-Wy-rP1"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAF-I5-wC4">
-                                <rect key="frame" x="68" y="397" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAF-I5-wC4">
+                                <rect key="frame" x="82" y="397" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="8gc-z8-JZS"/>
                                     <constraint firstAttribute="height" constant="169" id="f7d-I3-Tb1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,15 +184,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="VeA-lm-mL2"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYb-jD-SFO">
-                                <rect key="frame" x="232" y="397" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYb-jD-SFO">
+                                <rect key="frame" x="246" y="397" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="hV4-2P-E9F"/>
                                     <constraint firstAttribute="height" constant="169" id="oFK-hg-wOc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,15 +202,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="s2d-Fq-J1f"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVr-8E-fFK">
-                                <rect key="frame" x="396" y="397" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVr-8E-fFK">
+                                <rect key="frame" x="410" y="397" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="JUh-W4-jSn"/>
                                     <constraint firstAttribute="height" constant="169" id="uIQ-jB-jIA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,15 +220,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="0fZ-ec-Lqy"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGw-Au-0tb">
-                                <rect key="frame" x="577" y="397" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGw-Au-0tb">
+                                <rect key="frame" x="571" y="397" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="CbS-Cp-Ba2"/>
                                     <constraint firstAttribute="width" constant="117" id="nLT-KG-fj9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,15 +238,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="Cll-g8-wvV"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-aN-eQf">
-                                <rect key="frame" x="68" y="666" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-aN-eQf">
+                                <rect key="frame" x="82" y="666" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="4ZQ-uI-dhT"/>
                                     <constraint firstAttribute="height" constant="169" id="mRz-8i-fMN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -258,15 +256,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="x99-fM-KnY"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqO-MH-eb7">
-                                <rect key="frame" x="232" y="666" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqO-MH-eb7">
+                                <rect key="frame" x="246" y="666" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="bjS-Ox-711"/>
                                     <constraint firstAttribute="width" constant="117" id="mIa-Fd-q1L"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,15 +274,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="ZvX-sy-Rbl"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xV-z8-zxa">
-                                <rect key="frame" x="396" y="666" width="117" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xV-z8-zxa">
+                                <rect key="frame" x="410" y="666" width="117" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="B9L-of-7h2"/>
                                     <constraint firstAttribute="height" constant="169" id="wJ4-lr-hOr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -294,15 +292,15 @@
                                     <action selector="touchCardButton:" destination="TZx-zh-ylY" eventType="touchUpInside" id="YLw-2v-w6d"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QM-99-pAN">
-                                <rect key="frame" x="580" y="666" width="111" height="169"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QM-99-pAN">
+                                <rect key="frame" x="574" y="666" width="111" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="gnu-G9-epg"/>
                                     <constraint firstAttribute="width" constant="111" id="mHQ-IX-6t2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,7 +311,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="147" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-YY-xz4">
-                                <rect key="frame" x="47" y="903" width="147" height="80"/>
+                                <rect key="frame" x="47" y="877" width="147" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -324,7 +322,7 @@
                                 <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="338" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-8q-Pgl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="338" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-8q-Pgl">
                                 <rect key="frame" x="215" y="895" width="338" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -336,7 +334,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1s1-at-AX3">
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1s1-at-AX3">
                                 <rect key="frame" x="611" y="929" width="119" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -354,12 +352,14 @@
                         <constraints>
                             <constraint firstItem="1xV-z8-zxa" firstAttribute="centerY" secondItem="HqO-MH-eb7" secondAttribute="centerY" id="0B9-cP-Pv7"/>
                             <constraint firstItem="oYb-jD-SFO" firstAttribute="centerY" secondItem="eVr-8E-fFK" secondAttribute="centerY" id="1LJ-vu-xUS"/>
-                            <constraint firstItem="HOe-xN-M2P" firstAttribute="top" secondItem="GUd-YY-xz4" secondAttribute="bottom" constant="41" id="J8b-Yc-oOa"/>
+                            <constraint firstItem="HOe-xN-M2P" firstAttribute="top" secondItem="1s1-at-AX3" secondAttribute="bottom" constant="67" id="3ul-Ea-2Jp"/>
+                            <constraint firstItem="HOe-xN-M2P" firstAttribute="top" secondItem="GUd-YY-xz4" secondAttribute="bottom" constant="67" id="8BB-eq-yfe"/>
+                            <constraint firstItem="1s1-at-AX3" firstAttribute="centerY" secondItem="VJ5-8q-Pgl" secondAttribute="centerY" id="A71-Ju-O18"/>
                             <constraint firstItem="oYb-jD-SFO" firstAttribute="centerY" secondItem="KAF-I5-wC4" secondAttribute="centerY" id="JKa-H0-H6L"/>
                             <constraint firstItem="REd-eq-VT9" firstAttribute="centerY" secondItem="YMv-5u-qGh" secondAttribute="centerY" id="K4M-gS-FbD"/>
                             <constraint firstItem="1xV-z8-zxa" firstAttribute="centerY" secondItem="3QM-99-pAN" secondAttribute="centerY" id="KYO-hf-Bjk"/>
                             <constraint firstItem="REd-eq-VT9" firstAttribute="centerX" secondItem="HqO-MH-eb7" secondAttribute="centerX" id="Mmw-9s-YU1"/>
-                            <constraint firstItem="vPw-nE-G2Z" firstAttribute="leading" secondItem="lFa-CM-ikZ" secondAttribute="leading" constant="68" id="PU4-Yw-q9J"/>
+                            <constraint firstItem="vPw-nE-G2Z" firstAttribute="leading" secondItem="lFa-CM-ikZ" secondAttribute="leading" constant="82" id="PU4-Yw-q9J"/>
                             <constraint firstItem="oYb-jD-SFO" firstAttribute="centerY" secondItem="kGw-Au-0tb" secondAttribute="centerY" id="PW6-zx-4cr"/>
                             <constraint firstItem="GUd-YY-xz4" firstAttribute="leading" secondItem="lFa-CM-ikZ" secondAttribute="leading" constant="47" id="Urf-hP-nZz"/>
                             <constraint firstItem="vPw-nE-G2Z" firstAttribute="centerX" secondItem="KAF-I5-wC4" secondAttribute="centerX" id="V53-iB-iU5"/>
@@ -375,7 +375,7 @@
                             <constraint firstItem="eVr-8E-fFK" firstAttribute="centerX" secondItem="YMv-5u-qGh" secondAttribute="centerX" id="oCQ-DX-7YW"/>
                             <constraint firstItem="REd-eq-VT9" firstAttribute="centerY" secondItem="nwR-e9-F8x" secondAttribute="centerY" id="pJL-zP-71d"/>
                             <constraint firstItem="Juy-aN-eQf" firstAttribute="top" secondItem="KAF-I5-wC4" secondAttribute="bottom" constant="100" id="q6d-Fw-clP"/>
-                            <constraint firstItem="nwR-e9-F8x" firstAttribute="leading" secondItem="YMv-5u-qGh" secondAttribute="trailing" constant="67" id="shf-bH-t1z"/>
+                            <constraint firstItem="nwR-e9-F8x" firstAttribute="leading" secondItem="YMv-5u-qGh" secondAttribute="trailing" constant="47" id="qYl-ur-I7S"/>
                             <constraint firstItem="KAF-I5-wC4" firstAttribute="top" secondItem="vPw-nE-G2Z" secondAttribute="bottom" constant="100" id="vQ4-3l-X41"/>
                             <constraint firstItem="3QM-99-pAN" firstAttribute="centerX" secondItem="kGw-Au-0tb" secondAttribute="centerX" id="wwG-20-44N"/>
                             <constraint firstItem="3QM-99-pAN" firstAttribute="centerX" secondItem="nwR-e9-F8x" secondAttribute="centerX" id="xpB-T6-fOg"/>
@@ -396,7 +396,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="distanceToBottomScoreLabelConstraint" destination="J8b-Yc-oOa" id="pxh-iS-zSu"/>
+                        <outlet property="distanceToBottomScoreLabelConstraint" destination="8BB-eq-yfe" id="TjZ-hb-ATv"/>
                         <outlet property="distanceToLeftScoreLabelConstraint" destination="Urf-hP-nZz" id="DoN-gm-Yeu"/>
                         <outlet property="heightScoreLabelConstraint" destination="DYZ-Tj-LDC" id="IA5-zd-JhB"/>
                         <outlet property="resultOfChoiceLabel" destination="VJ5-8q-Pgl" id="BfC-N6-Lsg"/>

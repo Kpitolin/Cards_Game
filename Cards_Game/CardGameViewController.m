@@ -30,8 +30,10 @@
 
 #define WIN_STATE @"WIN"
 #define NORMAL_STATE @"NORMAL"
-#define CONSTRAINT_FOR_NORMAL_STATE_LEFT 38
-#define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM 19
+#define CONSTRAINT_FOR_NORMAL_STATE_LEFT_IPHONE 38
+#define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPHONE 19
+#define CONSTRAINT_FOR_NORMAL_STATE_LEFT_IPAD 47
+#define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPAD 67
 -(void) viewDidLoad
 {
     [self resetUI];
@@ -188,16 +190,21 @@ static const int DEFAULTYSCORE = 452;
 }
 
 #define IDLABEL @"scoreLabel"
-
+#define NORMAL_HEIGHT 19
+#define NORMAL_WIDTH 112
+#define WIDTH_IPHONE 320
 -(NSDictionary *) attributesForEndOfGame{
-    return   @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
-                NSStrokeWidthAttributeName : @3,
-                NSStrokeColorAttributeName : [UIColor blackColor]};
+    return self.view.bounds.size.width > WIDTH_IPHONE ? @{ NSFontAttributeName: [UIFont systemFontOfSize:45],
+                                                           NSStrokeWidthAttributeName : @3,
+                                                           NSStrokeColorAttributeName : [UIColor blackColor]}
+                                                            :
+                                                            @{ NSFontAttributeName: [UIFont systemFontOfSize:30],
+                                                                NSStrokeWidthAttributeName : @3,
+                                                            NSStrokeColorAttributeName : [UIColor blackColor]};
 }
 
 
-#define NORMAL_HEIGHT 19
-#define NORMAL_WIDTH 112
+
 -(void)updateConstraintsOfUIElement: (UIView*)view forState:(NSString *)state withNewCenter:(CGPoint )center
 {
     
@@ -217,8 +224,14 @@ static const int DEFAULTYSCORE = 452;
             
             
         } else if ([state isEqualToString:NORMAL_STATE]){
-            self.distanceToBottomScoreLabelConstraint.constant  = CONSTRAINT_FOR_NORMAL_STATE_BOTTOM;
-            self.distanceToLeftScoreLabelConstraint.constant = CONSTRAINT_FOR_NORMAL_STATE_LEFT;
+            if(self.view.bounds.size.width > WIDTH_IPHONE){
+                self.distanceToBottomScoreLabelConstraint.constant  = CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPAD;
+                self.distanceToLeftScoreLabelConstraint.constant = CONSTRAINT_FOR_NORMAL_STATE_LEFT_IPAD;
+            }else{
+                self.distanceToBottomScoreLabelConstraint.constant  = CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPHONE;
+                self.distanceToLeftScoreLabelConstraint.constant = CONSTRAINT_FOR_NORMAL_STATE_LEFT_IPHONE;
+            }
+        
          
             self.heightScoreLabelConstraint.constant = NORMAL_HEIGHT;
             self.widthScoreLabelConstraint.constant = NORMAL_WIDTH;

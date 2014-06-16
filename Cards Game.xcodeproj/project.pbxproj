@@ -63,9 +63,9 @@
 		0A6A0D5B194F1B4D0083112E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PlayingCard.strings; sourceTree = "<group>"; };
 		0A6A0D5C194F1D960083112E /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
 		0A6A0D5F194F37170083112E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
-		0A6A0D64194F37220083112E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Storyboard.strings; sourceTree = "<group>"; };
 		DE204580193E766000C0892F /* BeginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeginViewController.h; sourceTree = "<group>"; };
 		DE204581193E766000C0892F /* BeginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeginViewController.m; sourceTree = "<group>"; };
+		DE26819C194F95DA00B30257 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Storyboard.strings; sourceTree = "<group>"; };
 		DE382E5A18F011000072D9B4 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		DE382E5B18F011000072D9B4 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		DE382E5D18F011510072D9B4 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A6A0D5F194F37170083112E /* Base */,
-				0A6A0D64194F37220083112E /* fr */,
+				DE26819C194F95DA00B30257 /* fr */,
 			);
 			name = Storyboard.storyboard;
 			sourceTree = "<group>";
