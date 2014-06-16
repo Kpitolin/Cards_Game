@@ -25,12 +25,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Une-Df-MGp">
-                                <rect key="frame" x="91" y="328" width="138" height="30"/>
+                                <rect key="frame" x="112" y="328" width="96" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="O3d-p4-Cew"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Let's play !">
@@ -48,13 +45,17 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" playsSound="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="2kO-vA-lW2"/>
+                                    <constraint firstAttribute="height" constant="162" id="3OM-jS-IfL"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="mfQ-07-6JJ" id="FCL-ws-wTG"/>
                                     <outlet property="delegate" destination="mfQ-07-6JJ" id="z1e-zI-BxH"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card's color :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl5-VN-c0z">
-                                <rect key="frame" x="74" y="125" width="173" height="26"/>
+                                <rect key="frame" x="95" y="124" width="130" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,15 +66,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="56Y-wf-xdc"/>
-                            <constraint firstItem="Une-Df-MGp" firstAttribute="top" secondItem="3DV-GD-eyb" secondAttribute="bottom" constant="8" symbolic="YES" id="ASP-9c-42c"/>
-                            <constraint firstAttribute="trailing" secondItem="3DV-GD-eyb" secondAttribute="trailing" constant="20" symbolic="YES" id="OWd-Mw-RPt"/>
-                            <constraint firstItem="3DV-GD-eyb" firstAttribute="top" secondItem="Zl5-VN-c0z" secondAttribute="bottom" constant="7" id="fBi-Vc-sU4"/>
-                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="74" id="lE3-pf-d5I"/>
-                            <constraint firstItem="Une-Df-MGp" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="91" id="mpx-Ge-q5E"/>
-                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="top" secondItem="Stc-TP-z5p" secondAttribute="bottom" constant="61" id="ozk-26-3Fn"/>
-                            <constraint firstItem="3DV-GD-eyb" firstAttribute="leading" secondItem="6Pp-d8-kIG" secondAttribute="leading" constant="20" symbolic="YES" id="yT2-Sk-Pf2"/>
-                            <constraint firstItem="Une-Df-MGp" firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="zKe-FV-YmM"/>
+                            <constraint firstAttribute="centerX" secondItem="3DV-GD-eyb" secondAttribute="centerX" id="0dn-II-XVd"/>
+                            <constraint firstItem="Zl5-VN-c0z" firstAttribute="top" secondItem="Stc-TP-z5p" secondAttribute="bottom" constant="60" id="88F-Dk-zKe"/>
+                            <constraint firstAttribute="centerX" secondItem="Zl5-VN-c0z" secondAttribute="centerX" id="8zY-Hy-g3l"/>
+                            <constraint firstAttribute="centerX" secondItem="Une-Df-MGp" secondAttribute="centerX" id="HCE-WN-CQj"/>
+                            <constraint firstItem="3DV-GD-eyb" firstAttribute="top" secondItem="Zl5-VN-c0z" secondAttribute="bottom" constant="8" symbolic="YES" id="o3v-pG-CGK"/>
+                            <constraint firstItem="Une-Df-MGp" firstAttribute="top" secondItem="3DV-GD-eyb" secondAttribute="bottom" constant="8" symbolic="YES" id="w1R-mk-HSc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5rB-yA-La2">

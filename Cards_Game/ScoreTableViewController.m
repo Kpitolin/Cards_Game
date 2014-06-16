@@ -55,8 +55,8 @@
 
 
 
-#define SCORE_TABLE_WIN NSLocalizedStringFromTable (@"SCORE_TABLE_WIN", @"Message given to user in the score table for the won games",  @"ScoreTableViewController")
-#define SCORE_TABLE_LOSE NSLocalizedStringFromTable (@"SCORE_TABLE_LOSE", @"Message given to user in the score table for the lost games",  @"ScoreTableViewController")
+#define SCORE_TABLE_WIN NSLocalizedStringFromTable (@"SCORE_TABLE_WIN", @"ScoreTableViewController",@"Message given to user in the score table for the won games"  )
+#define SCORE_TABLE_LOSE NSLocalizedStringFromTable (@"SCORE_TABLE_LOSE",@"ScoreTableViewController" ,@"Message given to user in the score table for the lost games")
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

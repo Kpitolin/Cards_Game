@@ -246,8 +246,8 @@ static const int DEFAULTYSCORE = 452;
     return perfectFrame;
 }
 
-#define END_SENTENCE_WIN NSLocalizedStringFromTable(@"SENTENCE_WIN", @"Message given to user at the end of the game if he loses", @"CardGameViewController")
-#define END_SENTENCE_LOSE NSLocalizedStringFromTable(@"SENTENCE_LOSE", @"Message given to user at the end of the game if he wins",  @"CardGameViewController")
+#define END_SENTENCE_WIN NSLocalizedStringFromTable(@"SENTENCE_WIN", @"CardGameViewController",@"Message given to user at the end of the game if he loses" )
+#define END_SENTENCE_LOSE NSLocalizedStringFromTable(@"SENTENCE_LOSE",  @"CardGameViewController", @"Message given to user at the end of the game if he wins" )
 
 -(void)endOfGameConfigurationWinning:(BOOL)win
 {

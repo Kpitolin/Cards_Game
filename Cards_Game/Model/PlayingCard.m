@@ -41,16 +41,16 @@
     
 }
 
-#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_2CARDS NSLocalizedStringFromTable (@"MATCH_2", @"Message given to user every time he tries to match cards (2 cards : they match)",  @"PlayingCard")
-#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_2CARDS NSLocalizedStringFromTable (@"NOT_MATCH_2", @"Message given to user every time he tries to match cards (2 cards : they don't match)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_2CARDS NSLocalizedStringFromTable (@"MATCH_2", @"PlayingCard",@"Message given to user every time he tries to match cards (2 cards : they match)" )
+#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_2CARDS NSLocalizedStringFromTable (@"NOT_MATCH_2", @"PlayingCard",@"Message given to user every time he tries to match cards (2 cards : they don't match)")
 
-#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_3CARDS NSLocalizedStringFromTable (@"MATCH_3", @"Message given to user every time he tries to match cards (3 cards : they match)",  @"PlayingCard")
-#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_3CARDS NSLocalizedStringFromTable (@"NOT_MATCH", @"Message given to user every time he tries to match cards (3 cards : they don't match)",  @"PlayingCard")
-#define AND NSLocalizedStringFromTable (@"AND", @"et",  @"PlayingCard")
-#define OR NSLocalizedStringFromTable (@"OR", @"ou",  @"PlayingCard")
-#define RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_MIXED_PAIR", @"Message given to user every time he tries to match cards (3 cards : mixed pair)",  @"PlayingCard")
-#define RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_SUIT_PAIR", @"Message given to user every time he tries to match cards (3 cards : suit pair)",  @"PlayingCard")
-#define RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_RANK_PAIR", @"Message given to user every time he tries to match cards (3 cards : rank pair)",  @"PlayingCard")
+#define RESULT_OF_CHOICE_SENTENCE_POSITIVE_3CARDS NSLocalizedStringFromTable (@"MATCH_3",  @"PlayingCard",@"Message given to user every time he tries to match cards (3 cards : they match)")
+#define RESULT_OF_CHOICE_SENTENCE_NEGATIVE_3CARDS NSLocalizedStringFromTable (@"NOT_MATCH",  @"PlayingCard",@"Message given to user every time he tries to match cards (3 cards : they don't match)")
+#define AND NSLocalizedStringFromTable (@"AND",  @"PlayingCard",@"et"  )
+#define OR NSLocalizedStringFromTable (@"OR",  @"PlayingCard",@"ou" )
+#define RESULT_OF_CHOICE_SENTENCE_MIXED_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_MIXED_PAIR", @"PlayingCard" ,@"Message given to user every time he tries to match cards (3 cards : mixed pair)")
+#define RESULT_OF_CHOICE_SENTENCE_SUIT_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_SUIT_PAIR", @"PlayingCard" ,@"Message given to user every time he tries to match cards (3 cards : suit pair)")
+#define RESULT_OF_CHOICE_SENTENCE_RANK_PAIR_3CARDS NSLocalizedStringFromTable (@"MATCH_3_RANK_PAIR", @"PlayingCard" ,@"Message given to user every time he tries to match cards (3 cards : rank pair)")
 
 
 

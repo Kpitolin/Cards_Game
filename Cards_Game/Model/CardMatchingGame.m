@@ -74,7 +74,7 @@
 
 /* If we just init the game without
  number of cards or anything, it couldn't start*/
-#define SCORE_ANNOUNCEMENT_BEGINNING NSLocalizedStringFromTable (@"SCORE_ANNOUNCEMENT_BEGINNING", @"Message given to user every time he tries to match cards",  @"CardMatchingGame")
+#define SCORE_ANNOUNCEMENT_BEGINNING NSLocalizedStringFromTable (@"SCORE_ANNOUNCEMENT_BEGINNING",  @"CardMatchingGame",@"Message given to user every time he tries to match cards")
 
 - (instancetype) init{
     return nil;
@@ -145,7 +145,7 @@ static const int COST_TO_CHOOSE = 1;
                 id result = [card_id arrayResult_match:self.cardToMatchWith][1];
                 NSString *begin = [result isKindOfClass:[NSString class]] ? (NSString *)result : @"";
                 
-                resultOfchoice = [NSString stringWithFormat:@"%@\n%@ %d %@",SCORE_ANNOUNCEMENT_BEGINNING,begin,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"]; // show the result for the local score
+                resultOfchoice = [NSString stringWithFormat:@"%@\n%@ %d %@",begin,SCORE_ANNOUNCEMENT_BEGINNING,matchScore*MATCH_BONUS,(matchScore*MATCH_BONUS)>1?@"points":@"point"]; // show the result for the local score
                 
                 
             }
