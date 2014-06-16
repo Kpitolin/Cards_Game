@@ -58,12 +58,12 @@
                 if([self.suit isEqualToString: otherCard.suit]){
                     score = POINTS_SUIT_PAIR;
                     result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
-                    otherCard.matched = YES;
+                   // otherCard.matched = YES;
                     
                 }else if(self.rank ==otherCard.rank){
                     score = POINTS_RANK_PAIR;
                     result =  [NSString stringWithFormat:@"%@ matches with %@",self.contents,otherCard.contents] ;
-                    otherCard.matched = YES;
+                 //   otherCard.matched = YES;
                     
                 } else {
                     result = [NSString stringWithFormat:@"%@ doesn't match with %@" ,self.contents,otherCard.contents] ;

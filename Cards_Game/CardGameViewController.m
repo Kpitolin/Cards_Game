@@ -147,7 +147,7 @@ static const int DEFAULTYSCORE = 452;
 
 -(void) updateUIwithResultofChoice:(NSString*)result{
     
-    for (UIButton * cardButton in self.cardButtons) {
+    for (UIButton * cardButton in self.cardButtons) { // when you come back from the verification the four cards become chosen
         NSUInteger index  = [self.cardButtons indexOfObject:cardButton];
         Card * card = [self.game cardAtIndex:index];
         [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
