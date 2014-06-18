@@ -41,18 +41,18 @@
 #define HEIGHT_CARD_IPHONE 88
 #define HEIGHT_CARD_IPAD 169
 #define WIDTH_IPHONE 320
-
+#define SCALEFACTOR 0.90
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UIImageView * imageView = (UIImageView *)view;
     UIImage * image = [UIImage imageNamed:[self.cardBacksArray objectAtIndex:row] ];
     if(self.view.bounds.size.width > WIDTH_IPHONE)
     {
-        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPAD, HEIGHT_CARD_IPAD)];
+        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPAD*SCALEFACTOR, HEIGHT_CARD_IPAD*SCALEFACTOR)];
   
     }else
     {
-        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPHONE, HEIGHT_CARD_IPHONE)];
+        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPHONE*SCALEFACTOR, HEIGHT_CARD_IPHONE*SCALEFACTOR)];
 
     }
     imageView.image = image;
