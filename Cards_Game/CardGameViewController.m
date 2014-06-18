@@ -71,7 +71,7 @@ static const int DEFAULT = 2;
 -(UIImage *)cardback {
     
     if(!_cardback){
-        _cardback =  [UIImage imageNamed:[NSString stringWithFormat:@"cardback_%@",self.cardback_name]];
+        _cardback =  [UIImage imageNamed:[NSString stringWithFormat:@"%@",self.cardback_name]];
         
     }
     return _cardback;

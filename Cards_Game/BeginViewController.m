@@ -36,13 +36,30 @@
     return [self.cardBacksArray count];
 }
 
+#define WIDTH_CARD_IPHONE 60
+#define WIDTH_CARD_IPAD 117
+#define HEIGHT_CARD_IPHONE 88
+#define HEIGHT_CARD_IPAD 169
+#define WIDTH_IPHONE 320
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
-
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
+    UIImage * image = [UIImage imageNamed:[self.cardBacksArray objectAtIndex:row] ];
+    view = [[UIImageView alloc ]initWithImage:image];
     
-    return [self.cardBacksArray objectAtIndex:row];
-    
+    return view;
+
+}
+
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
+   return  self.view.bounds.size.width > WIDTH_IPHONE? WIDTH_CARD_IPAD : WIDTH_CARD_IPHONE;
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+   return  self.view.bounds.size.width > WIDTH_IPHONE? HEIGHT_CARD_IPAD : HEIGHT_CARD_IPHONE;
+
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
