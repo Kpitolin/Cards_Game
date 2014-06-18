@@ -44,10 +44,19 @@
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
+    UIImageView * imageView = (UIImageView *)view;
     UIImage * image = [UIImage imageNamed:[self.cardBacksArray objectAtIndex:row] ];
-    view = [[UIImageView alloc ]initWithImage:image];
-    
-    return view;
+    if(self.view.bounds.size.width > WIDTH_IPHONE)
+    {
+        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPAD, HEIGHT_CARD_IPAD)];
+  
+    }else
+    {
+        imageView = [[UIImageView alloc ]initWithFrame:CGRectMake(imageView.center.x, imageView.center.y, WIDTH_CARD_IPHONE, HEIGHT_CARD_IPHONE)];
+
+    }
+    imageView.image = image;
+    return imageView;
 
 }
 
