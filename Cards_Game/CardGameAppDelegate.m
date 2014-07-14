@@ -39,7 +39,7 @@
     }];
     dispatch_async(dispatch_get_main_queue(), ^{
         while ([application backgroundTimeRemaining] > 1.0) {
-            [self scheduleNotificationForInterval:10];
+            [self scheduleNotificationForInterval:30];
             break;
         }
         [application endBackgroundTask:self.bgTask];
@@ -74,7 +74,7 @@
     
     int indexForLastWin = 0;
     NSNumber * score;
-    for (int index = 0; index < [scoreArray count]; index ++)
+    for (int index = [scoreArray count]-1; index >=0; index --)
     {
         score = [scoreArray objectAtIndex:index];
         if([score integerValue]>=0)
@@ -93,14 +93,17 @@
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:lastWinDate];
     if (timeInterval >= minutesAfter*60 )
     {
-        
+        localNotif.fireDate = [NSDate date];
         localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis %i minutes.", minutesAfter];
         localNotif.alertAction = @"Jouer";
         
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         localNotif.applicationIconBadgeNumber = 1;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
-
+         [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
    
 }
