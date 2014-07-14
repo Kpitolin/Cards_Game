@@ -40,6 +40,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         while ([application backgroundTimeRemaining] > 1.0) {
             [self scheduleNotificationForInterval:10];
+            break;
         }
         [application endBackgroundTask:self.bgTask];
         self.bgTask = UIBackgroundTaskInvalid;
@@ -55,6 +56,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //We remove the notification badgewhen the user launch the app
+    application.applicationIconBadgeNumber = 0;
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
