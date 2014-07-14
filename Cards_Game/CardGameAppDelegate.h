@@ -11,5 +11,5 @@
 @interface CardGameAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic) UIBackgroundTaskIdentifier bgTask;
 @end

@@ -8,7 +8,9 @@
 
 #import "CardGameAppDelegate.h"
 
+
 @implementation CardGameAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,7 +28,24 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSAssert(self.bgTask == UIBackgroundTaskInvalid, nil);
+
+    self.bgTask = [application beginBackgroundTaskWithExpirationHandler: ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [application endBackgroundTask:self.bgTask];
+            self.bgTask = UIBackgroundTaskInvalid;
+        });
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        while ([application backgroundTimeRemaining] > 1.0) {
+            [self scheduleNotificationForInterval:10];
+        }
+        [application endBackgroundTask:self.bgTask];
+        self.bgTask = UIBackgroundTaskInvalid;
+    });
 }
+
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
@@ -43,4 +62,39 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)scheduleNotificationForInterval:(int)minutesAfter {
+    
+    NSMutableArray* scoreArray  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Scores"] mutableCopy];
+    
+    int indexForLastWin;
+    for (NSNumber * score in scoreArray)
+    {
+        if([score integerValue]>=0)
+        {
+            break;
+        }
+        indexForLastWin ++;
+    }
+    
+    NSDate *lastWinDate =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"Dates"] objectAtIndex:indexForLastWin];
+    
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif == nil)
+        return;
+    
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:lastWinDate];
+    if (timeInterval >= minutesAfter*60 )
+    {
+        
+        localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis in %i minutes.", minutesAfter];
+        localNotif.alertAction = @"Jouer";
+        
+        localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.applicationIconBadgeNumber = 1;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
+
+    }
+   
+}
 @end

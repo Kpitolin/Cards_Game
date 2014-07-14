@@ -370,7 +370,7 @@ static const int DEFAULTYSCORE = 452;
 
 #define SCORES @"Scores"
 #define HIGHSCORE @"HIGHSCORE"
-
+#define DATES @"Dates"
 //For saving the photos in the NSUserDefaults
 - (void)saveScore{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
@@ -386,10 +386,18 @@ static const int DEFAULTYSCORE = 452;
    
     //NSArray* scoreArray = [games sortedArrayUsingSelector:@selector(intValue)]; // we order the array
     
+    NSMutableArray *dates = [[defaults objectForKey:DATES] mutableCopy];
+    if (!dates) dates = [[NSMutableArray alloc] init];
     
+    if(![games containsObject:[NSDate date]])
+    {
+        [games addObject: [NSDate date]];
+    }
 
-
+    
     [defaults setObject:games forKey:SCORES];
+    [defaults setObject:dates forKey:DATES];
+
     [defaults synchronize];
     
 
