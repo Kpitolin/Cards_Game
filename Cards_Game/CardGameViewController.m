@@ -389,13 +389,15 @@ static const int DEFAULTYSCORE = 452;
     NSMutableArray *dates = [[defaults objectForKey:DATES] mutableCopy];
     if (!dates) dates = [[NSMutableArray alloc] init];
     
-    if(![games containsObject:[NSDate date]])
+    if(![dates containsObject:[NSDate date]])
     {
-        [games addObject: [NSDate date]];
+        [dates addObject: [NSDate date]];
     }
 
     
     [defaults setObject:games forKey:SCORES];
+    [defaults synchronize];
+
     [defaults setObject:dates forKey:DATES];
 
     [defaults synchronize];

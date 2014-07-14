@@ -67,14 +67,16 @@
     
     NSMutableArray* scoreArray  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Scores"] mutableCopy];
     
-    int indexForLastWin;
-    for (NSNumber * score in scoreArray)
+    int indexForLastWin = 0;
+    NSNumber * score;
+    for (int index = 0; index < [scoreArray count]; index ++)
     {
+        score = [scoreArray objectAtIndex:index];
         if([score integerValue]>=0)
         {
+            indexForLastWin = index;
             break;
         }
-        indexForLastWin ++;
     }
     
     NSDate *lastWinDate =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"Dates"] objectAtIndex:indexForLastWin];
@@ -87,7 +89,7 @@
     if (timeInterval >= minutesAfter*60 )
     {
         
-        localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis in %i minutes.", minutesAfter];
+        localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis %i minutes.", minutesAfter];
         localNotif.alertAction = @"Jouer";
         
         localNotif.soundName = UILocalNotificationDefaultSoundName;

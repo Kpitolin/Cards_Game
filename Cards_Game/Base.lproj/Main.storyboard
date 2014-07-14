@@ -319,6 +319,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="distanceToBottomScoreLabelConstraint" destination="ACp-ou-HcX" id="lQn-du-59V"/>
                         <outlet property="distanceToLeftScoreLabelConstraint" destination="e51-iq-vku" id="7KP-Ri-eOg"/>
                         <outlet property="heightScoreLabelConstraint" destination="X45-b4-ILe" id="ARU-iY-cEa"/>
                         <outlet property="resultOfChoiceLabel" destination="KCa-Ev-puE" id="PqA-W8-n10"/>
