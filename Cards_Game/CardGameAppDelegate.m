@@ -39,7 +39,7 @@
     }];
     dispatch_async(dispatch_get_main_queue(), ^{
         while ([application backgroundTimeRemaining] > 1.0) {
-            [self scheduleNotificationForInterval:30];
+            [self scheduleNotificationForInterval:6];
             break;
         }
         [application endBackgroundTask:self.bgTask];
@@ -68,7 +68,7 @@
 }
 
 
-- (void)scheduleNotificationForInterval:(int)minutesAfter {
+- (void)scheduleNotificationForInterval:(int)daysAfter {
     
     NSMutableArray* scoreArray  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Scores"] mutableCopy];
     
@@ -90,21 +90,17 @@
     if (localNotif == nil)
         return;
     
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:lastWinDate];
-    if (timeInterval >= minutesAfter*60 )
-    {
-        localNotif.fireDate = [NSDate date];
-        localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis %i minutes.", minutesAfter];
+    
+        localNotif.fireDate = [lastWinDate dateByAddingTimeInterval:3600*24*daysAfter];
+        localNotif.alertBody = [NSString stringWithFormat:@"Tu n'as pas gagné depuis longtemps. Aimes-tu tant la défaite ?"];
         localNotif.alertAction = @"Jouer";
         
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         localNotif.applicationIconBadgeNumber = 1;
          [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-    }
-    else
-    {
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    }
+
+    
+  
    
 }
 @end
