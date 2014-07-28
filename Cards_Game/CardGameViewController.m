@@ -13,12 +13,11 @@
 @interface CardGameViewController ()
 @property (strong, nonatomic) Deck * cardDeck;
 @property (nonatomic, strong) CardMatchingGame* game;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong, nonatomic) IBOutletCollection (UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControlModeChooser;
 @property (weak, nonatomic) IBOutlet UILabel *resultOfChoiceLabel;
-@property (weak , nonatomic) UIImage *cardfront;
-@property (weak , nonatomic) UIImage *cardback;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distanceToBottomScoreLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distanceToLeftScoreLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightScoreLabelConstraint;
@@ -34,6 +33,7 @@
 #define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPHONE 19
 #define CONSTRAINT_FOR_NORMAL_STATE_LEFT_IPAD 47
 #define CONSTRAINT_FOR_NORMAL_STATE_BOTTOM_IPAD 67
+
 -(void) viewDidLoad
 {
     [self resetUI];

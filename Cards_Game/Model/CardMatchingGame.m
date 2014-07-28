@@ -303,7 +303,27 @@ static const int JEUNF = 3;
     }
 }
 
+-(void)replaceRandomCardWithCardOfDeck:(Deck *) deck
+{
+    unsigned index;
+    NSUInteger size = [self.cards count];
+    Card *randomCardToReplace = nil;
+    Card *randomCardToPut = nil;
+    index = arc4random()%size; //size of array is the max index
+    randomCardToReplace = [self.cards objectAtIndex:index];
+    
+    
+    while (!randomCardToReplace.isChosen && !randomCardToReplace.isMatched) {
+        index = arc4random()%size; //size of array is the max index
+        randomCardToReplace = [self.cards objectAtIndex:index];
+    }
+    
+    randomCardToPut = [deck drawRandomCard]; //We rely on the integrity of the deck here (there's no doublons)
 
+    
+    [self.cards replaceObjectAtIndex:index withObject:randomCardToPut];
+    
+}
 
 
 @end

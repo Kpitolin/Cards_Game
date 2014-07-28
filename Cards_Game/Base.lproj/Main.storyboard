@@ -424,10 +424,10 @@
             </objects>
             <point key="canvasLocation" x="1441" y="-799"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection Game View Controller-->
         <scene sceneID="E6R-CR-zT7">
             <objects>
-                <viewController id="4O1-eM-JyF" sceneMemberID="viewController">
+                <viewController id="4O1-eM-JyF" customClass="CollectionGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GlC-PD-Wwb"/>
                         <viewControllerLayoutGuide type="bottom" id="6UP-rh-qFI"/>
@@ -487,25 +487,25 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z4o-Ps-iZB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6mE-fV-NUD">
-                                    <size key="itemSize" width="77" height="102"/>
+                                    <size key="itemSize" width="60" height="88"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TUv-9c-Yjm">
-                                        <rect key="frame" x="0.0" y="0.0" width="77" height="102"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TUv-9c-Yjm" customClass="CardGameCell">
+                                        <rect key="frame" x="10" y="10" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="77" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUw-dH-DLZ">
-                                                    <rect key="frame" x="-8" y="-12" width="117" height="169"/>
+                                                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUw-dH-DLZ">
+                                                    <rect key="frame" x="-29" y="-41" width="117" height="169"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -519,13 +519,27 @@
                                                         <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTL-bh-vDZ">
+                                                    <rect key="frame" x="-29" y="-41" width="118" height="170"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="AUw-dH-DLZ" firstAttribute="width" secondItem="dTL-bh-vDZ" secondAttribute="width" id="4qy-ua-F4Q"/>
                                             <constraint firstAttribute="centerY" secondItem="AUw-dH-DLZ" secondAttribute="centerY" id="EGt-BO-0Qu"/>
                                             <constraint firstAttribute="centerX" secondItem="AUw-dH-DLZ" secondAttribute="centerX" id="LgA-54-AhZ"/>
+                                            <constraint firstItem="AUw-dH-DLZ" firstAttribute="height" secondItem="dTL-bh-vDZ" secondAttribute="height" id="Q9k-g2-3pf"/>
+                                            <constraint firstAttribute="centerY" secondItem="dTL-bh-vDZ" secondAttribute="centerY" id="fdk-y5-2oS"/>
+                                            <constraint firstAttribute="centerX" secondItem="dTL-bh-vDZ" secondAttribute="centerX" id="vhX-cD-YLg"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="button" destination="dTL-bh-vDZ" id="wCc-T3-ApT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -551,6 +565,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="320" height="980"/>
+                    <connections>
+                        <outlet property="collectionView" destination="z4o-Ps-iZB" id="FBE-Sr-qFT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEe-wV-Pou" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
